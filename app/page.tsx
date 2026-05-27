@@ -1,65 +1,108 @@
+import { AppCarousel } from "@/components/appCarousel";
+import { AppGrid } from "@/components/appGrid";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="flex flex-col justify-center px-12 ">
+      <div className="hero w-full h-full max-w-600 pt-36 ">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/hero-1.png"
+          alt="Hero"
+          width={2800}
+          height={1539}
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+      </div>
+
+      <div className="flex flex-col justify-center text-center gap-18 pt-24">
+        <h2 className="text-center">
+          Join the millions already connecting
+          <br />
+          via Atmosphere apps!
+        </h2>
+        <AppCarousel />
+      </div>
+
+      <div
+        id="what-is-atmosphere"
+        className="flex flex-col justify-center text-center gap-6 pt-32"
+      >
+        <h2 className="text-center">The Atmosphere is an Social Scene</h2>
+        <div className="flex flex-col gap-3">
+          <p className="large-text">
+            Real people, friends, and neighbors, <br />
+            and a network of social apps connecting them.
+          </p>
+          <p className="large-text">Connecting you.</p>
+          <div className="h-80 w-full bg-[#1A2C0A]" />
+        </div>
+      </div>
+
+      {/*<div className="flex flex-col justify-center text-center gap-6 pt-32">
+        <h2 className="text-center">Your content, shared across the apps</h2>
+        <div className="flex flex-col gap-3">
+          <p className="large-text">
+            Your account, your friends, and your followers <br />
+            across every Atmosphere app
+          </p>
+          <div className="relative h-200 pt-8">
+            <Image
+              className="absolute top-0 left-0"
+              src="/your-content/leaflet.png"
+              alt="leaflet"
+              width={600}
+              height={280}
+            />
+            <Image
+              className="absolute top-12 left-64"
+              src="/your-content/blacksky.png"
+              alt="leaflet"
+              width={500}
+              height={2800}
+            />{" "}
+            <Image
+              className="absolute top-24 left-120"
+              src="/your-content/anisota.png"
+              alt="leaflet"
+              width={400}
+              height={280}
+            />
+            <Image
+              className="absolute top-36 left-196"
+              src="/your-content/bluesky.png"
+              alt="leaflet"
+              width={500}
+              height={280}
+            />{" "}
+          </div>
+        </div>
+      </div>*/}
+
+      <div className="flex flex-col justify-center text-center gap-6 pt-32">
+        <h2 className="text-center">Apps built for people, not platforms</h2>
+        <div className="flex flex-col gap-3">
+          <p className="large-text">An Atmosphere app will never enshittify.</p>
+
+          <p>
+            Normal social medias jealously hide and guard your data. This way,
+            they can sell it AND they hold it hostage to stop you from leaving
+            when things go south.{" "}
+          </p>
+          <p>
+            Apps on the Atmosphere store all the data in the open. It&apos;s a
+            free resource, like air and water. Anyone can build with it and
+            improve on it, but no one can own or exploits it.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
+
+      <div className="flex flex-col justify-center text-center gap-6 pt-32">
+        <h2 className="text-center">Join a future built for the people</h2>
+        <AppGrid />{" "}
+      </div>
+
+      <div className="h-screen w-full" />
     </div>
   );
 }
