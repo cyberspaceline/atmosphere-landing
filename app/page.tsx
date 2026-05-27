@@ -1,5 +1,6 @@
 import { AppCarousel } from "@/components/appCarousel";
 import { AppGrid } from "@/components/appGrid";
+import { WhatIsAtmosphere } from "@/components/whatIsAtmosphere";
 import Image from "next/image";
 
 export default function Home() {
@@ -24,20 +25,7 @@ export default function Home() {
         <AppCarousel />
       </div>
 
-      <div
-        id="what-is-atmosphere"
-        className="flex flex-col justify-center text-center gap-6 pt-32"
-      >
-        <h2 className="text-center">The Atmosphere is an ecosystem</h2>
-        <div className="flex flex-col gap-3">
-          <p className="large-text">
-            Real people, friends, and neighbors, <br />
-            and a network of social apps connecting them.
-          </p>
-          <p className="large-text pb-8">Connecting you.</p>
-          <div className="h-80 w-full bg-[#1A2C0A]" />
-        </div>
-      </div>
+      <WhatIsAtmosphere />
 
       <div className="sticky-house-group relative grid -mx-12 mt-32">
         <div className="row-start-1 col-start-1 sticky top-0 h-screen flex items-end justify-center overflow-hidden pointer-events-none z-0">
