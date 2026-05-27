@@ -55,3 +55,11 @@ body {
         transform: translateX(-1700px);
     }
 }
+
+html {
+    scroll-snap-type: y proximity;
+}
+
+.snap-section {
+    scroll-snap-align: start;
+}
