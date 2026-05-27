@@ -12,7 +12,7 @@ export const GlassCard = ({
 }) => {
   return (
     <div
-      className={`relative w-50 py-6 pl-1 pr-2 rounded-2xl shadow-[1px_2px_3px_0px_rgba(0,0,0,0.4),2px_6px_4px_0px_rgba(0,0,0,0.25)] ${className}`}
+      className={`relative  max-w-48 py-6 pl-4 pr-5 rounded-2xl shadow-[1px_2px_3px_0px_rgba(0,0,0,0.4),2px_6px_4px_0px_rgba(0,0,0,0.25)] ${className}`}
     >
       <div
         aria-hidden="true"

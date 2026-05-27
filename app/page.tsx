@@ -2,6 +2,7 @@ import { AppCarousel } from "@/components/appCarousel";
 import { AppGrid } from "@/components/appGrid";
 import { WhatIsAtmosphere } from "@/components/whatIsAtmosphere";
 import Image from "next/image";
+import { WhyAtmosphere } from "./whyAtmosphere";
 
 export default function Home() {
   return (
@@ -27,106 +28,7 @@ export default function Home() {
 
       <WhatIsAtmosphere />
 
-      <div className="sticky-house-group relative grid -mx-12 mt-32">
-        <div className="row-start-1 col-start-1 sticky top-0 h-screen flex items-end justify-center overflow-hidden pointer-events-none z-0">
-          <Image
-            src="/sections/house.png"
-            alt=""
-            width={1128}
-            height={928}
-            className="w-[60vw] max-w-[900px] h-auto"
-            priority
-          />
-        </div>
-
-        <div className="row-start-1 col-start-1 relative z-10">
-          <section className="snap-section h-screen relative px-12">
-            <div className="absolute top-16 right-12 max-w-[560px] text-right">
-              <h2>One account everywhere</h2>
-              <p className="large-text mt-4">
-                One account signs you into every Atmosphere app.
-              </p>
-            </div>
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-[28vh]">
-              <Image
-                src="/sections/section-1-card.png"
-                alt="Eva Khoury profile card"
-                width={213}
-                height={193}
-                className="w-[220px] h-auto"
-              />
-            </div>
-          </section>
-
-          <section className="snap-section h-screen relative px-12">
-            <div className="absolute top-16 right-12 max-w-[460px] text-right">
-              <h2>With everyone you&rsquo;ve ever met</h2>
-              <p className="large-text mt-6">
-                Try out new experiences, never start from scratch.
-              </p>
-              <p className="mt-4">
-                Your content, your friends and followers are already waiting for
-                you in every atmosphere app
-              </p>
-            </div>
-            <Image
-              src="/sections/section-2-1.png"
-              alt="Grain photo sharing"
-              width={329}
-              height={576}
-              className="absolute left-[4%] bottom-[16vh] w-[240px] h-auto"
-            />
-            <Image
-              src="/sections/section-2-2.png"
-              alt="Sill reading"
-              width={457}
-              height={576}
-              className="absolute left-[22%] bottom-[12vh] w-[340px] h-auto"
-            />
-            <Image
-              src="/sections/section-2-3.png"
-              alt="Margin annotations"
-              width={457}
-              height={374}
-              className="absolute left-[48%] bottom-[26vh] w-[340px] h-auto"
-            />
-          </section>
-
-          <section className="snap-section h-screen relative px-12">
-            <div className="absolute top-16 right-12 max-w-[460px] text-right">
-              <h2>and everything you&rsquo;ve ever made</h2>
-              <p className="large-text mt-6">
-                Leverage all your content, posts, and feeds across The
-                Atmosphere
-              </p>
-              <p className="mt-4">
-                Create and connect seamlessly between your many worlds
-              </p>
-            </div>
-            <Image
-              src="/sections/section-3-1.png"
-              alt="Bluesky"
-              width={386}
-              height={481}
-              className="absolute left-[5%] bottom-[18vh] w-[280px] h-auto"
-            />
-            <Image
-              src="/sections/section-3-2.png"
-              alt="Blacksky"
-              width={386}
-              height={481}
-              className="absolute left-[22%] bottom-[12vh] w-[280px] h-auto"
-            />
-            <Image
-              src="/sections/section-3-3.png"
-              alt="Anisota"
-              width={299}
-              height={484}
-              className="absolute left-[40%] bottom-[16vh] w-[220px] h-auto"
-            />
-          </section>
-        </div>
-      </div>
+      <WhyAtmosphere />
 
       {/*<div className="flex flex-col justify-center text-center gap-6 pt-32">
         <h2 className="text-center">Your content, shared across the apps</h2>
