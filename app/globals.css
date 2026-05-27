@@ -8,10 +8,20 @@
 }
 
 body {
-    background: #224402;
-    color: #edfdc8;
-    font-family: var(--font-ibm-plex-sans), Georgia, serif;
+    color: #313a1d;
+    font-family: var(--font-ibm-plex-sans), Arial, Helvetica, sans-serif;
     font-size: 1.25rem;
+}
+
+#home-page {
+    background: linear-gradient(
+        178deg,
+        #4381a6 1.12%,
+        #c6d6dd 6.63%,
+        #ecf3f6 47.99%,
+        #c6d6dd 82.91%,
+        #a5bfca 93.35%
+    );
 }
 
 @layer base {
@@ -24,26 +34,27 @@ body {
     h1 {
         font-size: 3rem;
         line-height: 1;
+        font-weight: 700;
     }
 
     h2 {
-        font-size: 3.5rem;
+        font-size: 2rem;
         font-weight: 700;
         line-height: 1;
     }
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 700;
         line-height: 1;
     }
     p {
-        font-size: 1.25rem;
+        font-size: 1rem;
         line-height: 1.5rem;
     }
 
     .large-text {
-        font-size: 2rem;
-        line-height: 2.5rem;
+        font-size: 1.5rem;
+        line-height: 1.65rem;
     }
 }
 

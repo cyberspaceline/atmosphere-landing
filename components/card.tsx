@@ -12,7 +12,7 @@ export const GlassCard = ({
 }) => {
   return (
     <div
-      className={`relative w-50 py-8 px-4 rounded-2xl shadow-[1px_2px_3px_0px_rgba(0,0,0,0.4),2px_6px_4px_0px_rgba(0,0,0,0.25)] ${className}`}
+      className={`relative w-50 py-6 pl-1 pr-2 rounded-2xl shadow-[1px_2px_3px_0px_rgba(0,0,0,0.4),2px_6px_4px_0px_rgba(0,0,0,0.25)] ${className}`}
     >
       <div
         aria-hidden="true"
@@ -21,7 +21,7 @@ export const GlassCard = ({
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_-0.1px_-0.5px_3px_0.5px_rgba(255,255,255,0.6),inset_1px_1px_2px_0px_rgba(255,255,255,0.9),inset_-2px_-4px_6px_1px_#618f33]"
+        className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_-0.1px_-0.5px_3px_0.5px_rgba(255,255,255,0.6),inset_1px_1px_2px_0px_rgba(255,255,255,0.9),inset_-2px_-4px_6px_1px_rgba(12,39,94,0.51)]"
       />
       <div className="relative">{children}</div>
     </div>

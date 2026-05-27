@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center px-12 ">
+    <div id="home-page" className="flex flex-col justify-center px-12 ">
       <div className="hero w-full h-full max-w-600 pt-36 ">
         <Image
           src="/hero-1.png"
@@ -28,19 +28,19 @@ export default function Home() {
         id="what-is-atmosphere"
         className="flex flex-col justify-center text-center gap-6 pt-32"
       >
-        <h2 className="text-center">The Atmosphere is an Social Scene</h2>
+        <h2 className="text-center">The Atmosphere is an ecosystem</h2>
         <div className="flex flex-col gap-3">
           <p className="large-text">
             Real people, friends, and neighbors, <br />
             and a network of social apps connecting them.
           </p>
-          <p className="large-text">Connecting you.</p>
+          <p className="large-text pb-8">Connecting you.</p>
           <div className="h-80 w-full bg-[#1A2C0A]" />
         </div>
       </div>
 
-      <div className="sticky-house-group relative grid -mx-12 mt-32 text-[#1a2c0a]">
-        <div className="row-start-1 col-start-1 sticky top-0 h-screen bg-[#d0dade] flex items-end justify-center overflow-hidden pointer-events-none z-0">
+      <div className="sticky-house-group relative grid -mx-12 mt-32">
+        <div className="row-start-1 col-start-1 sticky top-0 h-screen flex items-end justify-center overflow-hidden pointer-events-none z-0">
           <Image
             src="/sections/house.png"
             alt=""

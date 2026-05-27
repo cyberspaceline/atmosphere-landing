@@ -51,12 +51,12 @@ const Track = ({
         >
           <GlassCard>
             <div className="flex flex-col justify-center text-center">
-              <div className="mx-auto mb-2">
+              <div className="mx-auto mb-3">
                 <Image
                   src={app.logo}
                   alt={`${app.name}'s logo`}
-                  width={64}
-                  height={64}
+                  width={48}
+                  height={48}
                 />
               </div>
               <h3 className="pb-1">{app.name}</h3>
