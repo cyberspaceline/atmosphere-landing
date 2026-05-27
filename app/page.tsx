@@ -1,5 +1,6 @@
 import { AppCarousel } from "@/components/appCarousel";
 import { AppGrid } from "@/components/appGrid";
+import { NoEnshittification } from "@/components/noEnshittification";
 import {
   InterconnectedAtmosphere,
   WhatIsAtmosphere,
@@ -33,6 +34,8 @@ export default function Home() {
 
       <WhyAtmosphere />
       <InterconnectedAtmosphere />
+
+      <NoEnshittification />
 
       <div className="flex flex-col justify-center text-center gap-6 pt-32">
         <h3 className="text-center text-[1.5rem]">
