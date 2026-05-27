@@ -193,7 +193,9 @@ function sky(skyOpacity: number, skyTranslate: number) {
           willChange: "opacity, transform",
         }}
       >
-        <GlassCard>Hello!</GlassCard>
+        <GlassCard>
+          <p className="text-center">Blacksky Content Here </p>
+        </GlassCard>
       </div>
       <div
         className="absolute top-[143px] left-[110px] z-50"
@@ -203,7 +205,10 @@ function sky(skyOpacity: number, skyTranslate: number) {
           willChange: "opacity, transform",
         }}
       >
-        <GlassCard>Hello!</GlassCard>
+        <GlassCard>
+          {" "}
+          <p className="text-center">Bluesky Content Here </p>
+        </GlassCard>{" "}
       </div>
     </div>
   );
@@ -232,7 +237,9 @@ function forest(forestOpacity: number, forestTranslate: number) {
           willChange: "opacity, transform",
         }}
       >
-        <GlassCard>Hello!</GlassCard>
+        <GlassCard>
+          <p className="text-center">Leaflet Content Here </p>
+        </GlassCard>{" "}
       </div>
       <div
         className="absolute bottom-[240px] right-[32px] z-50"
@@ -242,7 +249,10 @@ function forest(forestOpacity: number, forestTranslate: number) {
           willChange: "opacity, transform",
         }}
       >
-        <GlassCard>[content here]</GlassCard>
+        <GlassCard>
+          {" "}
+          <p className="text-center">Pckt Content Here </p>
+        </GlassCard>{" "}
       </div>
       <div
         className="absolute top-[6px] left-[156px] z-50"
@@ -252,7 +262,10 @@ function forest(forestOpacity: number, forestTranslate: number) {
           willChange: "opacity, transform",
         }}
       >
-        <GlassCard>Hello!</GlassCard>
+        <GlassCard>
+          {" "}
+          <p className="text-center">Offprint Content Here </p>
+        </GlassCard>
       </div>
     </div>
   );
