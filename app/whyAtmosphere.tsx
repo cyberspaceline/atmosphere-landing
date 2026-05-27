@@ -5,7 +5,7 @@ export const WhyAtmosphere = () => {
   return (
     <div>
       <div className="sticky-house-group relative grid -mx-12 mt-32">
-        <div className="row-start-1 col-start-1 sticky top-0 h-screen flex items-center justify-center overflow-hidden pointer-events-none z-0">
+        <div className="house row-start-1 col-start-1 sticky top-0 h-screen flex items-center justify-center overflow-hidden pointer-events-none z-0">
           <Image
             src="/why-atmosphere/house.png"
             alt=""
@@ -16,9 +16,9 @@ export const WhyAtmosphere = () => {
           />
         </div>
 
-        <div className="row-start-1 col-start-1 relative z-10">
-          <section className="snap-section h-screen w-screen flex items-center justify-center">
-            <div className=" w-[60vw] max-w-[900px] bg-pink aspect-6/5 relative  mx-auto mt-24">
+        <div className="scrollContainer row-start-1 col-start-1 relative z-10  snap-y snap-mandatory!">
+          <section className="snap-center h-screen w-screen flex items-center justify-center">
+            <div className=" w-[60vw] max-w-[900px] bg-pink aspect-6/5 relative mx-auto mt-24">
               <div className="absolute -top-16 -right-12  text-right">
                 <h2>This is your account.</h2>
                 <p className="large-text mt-4">
@@ -44,11 +44,11 @@ export const WhyAtmosphere = () => {
             </div>
           </section>
 
-          <section className="snap-section h-screen w-screen flex items-center justify-center">
+          <section className=" snap-center h-screen w-screen flex items-center justify-center">
             <div className=" w-[60vw] max-w-[900px] bg-pink aspect-6/5 relative  mx-auto mt-24">
               <div className="absolute -top-16 -right-12 text-right">
                 <h2>
-                  It remembers
+                  It&apos;s the sum of
                   <br /> everyone you&rsquo;ve ever met
                 </h2>
 
@@ -81,7 +81,7 @@ export const WhyAtmosphere = () => {
             </div>
           </section>
 
-          <section className="snap-section h-screen w-screen flex items-center justify-center">
+          <section className=" snap-center h-screen w-screen flex items-center justify-center">
             <div className=" w-[60vw] max-w-[900px] bg-pink aspect-6/5 relative  mx-auto mt-24">
               {" "}
               <div className="absolute -top-16 -right-12  text-right">
@@ -98,21 +98,28 @@ export const WhyAtmosphere = () => {
                 alt="Bluesky"
                 width={386}
                 height={481}
-                className="absolute left-[5%] bottom-[18vh] w-[280px] h-auto"
+                className="absolute -left-[64px] bottom-[214px] w-[280px] h-auto"
               />
               <Image
                 src="/why-atmosphere/section-3-2.png"
                 alt="Blacksky"
                 width={386}
                 height={481}
-                className="absolute left-[22%] bottom-[12vh] w-[280px] h-auto"
+                className="absolute left-[138px] bottom-[140px] w-[280px] h-auto"
               />
               <Image
                 src="/why-atmosphere/section-3-3.png"
                 alt="Anisota"
                 width={299}
                 height={484}
-                className="absolute left-[40%] bottom-[16vh] w-[220px] h-auto"
+                className="absolute left-[12px] bottom-[102px] w-[220px] h-auto"
+              />
+              <Image
+                src="/why-atmosphere/section-3-4.png"
+                alt="Leaflet"
+                width={382}
+                height={230}
+                className="absolute left-[374px] bottom-[161px] w-[320px] h-auto"
               />
             </div>
           </section>

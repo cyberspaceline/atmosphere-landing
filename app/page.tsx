@@ -1,6 +1,9 @@
 import { AppCarousel } from "@/components/appCarousel";
 import { AppGrid } from "@/components/appGrid";
-import { WhatIsAtmosphere } from "@/components/whatIsAtmosphere";
+import {
+  InterconnectedAtmosphere,
+  WhatIsAtmosphere,
+} from "@/components/whatIsAtmosphere";
 import Image from "next/image";
 import { WhyAtmosphere } from "./whyAtmosphere";
 
@@ -29,71 +32,16 @@ export default function Home() {
       <WhatIsAtmosphere />
 
       <WhyAtmosphere />
-
-      {/*<div className="flex flex-col justify-center text-center gap-6 pt-32">
-        <h2 className="text-center">Your content, shared across the apps</h2>
-        <div className="flex flex-col gap-3">
-          <p className="large-text">
-            Your account, your friends, and your followers <br />
-            across every Atmosphere app
-          </p>
-          <div className="relative h-200 pt-8">
-            <Image
-              className="absolute top-0 left-0"
-              src="/your-content/leaflet.png"
-              alt="leaflet"
-              width={600}
-              height={280}
-            />
-            <Image
-              className="absolute top-12 left-64"
-              src="/your-content/blacksky.png"
-              alt="leaflet"
-              width={500}
-              height={2800}
-            />{" "}
-            <Image
-              className="absolute top-24 left-120"
-              src="/your-content/anisota.png"
-              alt="leaflet"
-              width={400}
-              height={280}
-            />
-            <Image
-              className="absolute top-36 left-196"
-              src="/your-content/bluesky.png"
-              alt="leaflet"
-              width={500}
-              height={280}
-            />{" "}
-          </div>
-        </div>
-      </div>*/}
+      <InterconnectedAtmosphere />
 
       <div className="flex flex-col justify-center text-center gap-6 pt-32">
-        <h2 className="text-center">Apps built for people, not platforms</h2>
-        <div className="flex flex-col gap-3">
-          <p className="large-text">An Atmosphere app will never enshittify.</p>
-
-          <p>
-            Normal social medias jealously hide and guard your data. This way,
-            they can sell it AND they hold it hostage to stop you from leaving
-            when things go south.{" "}
-          </p>
-          <p>
-            Apps on the Atmosphere store all the data in the open. It&apos;s a
-            free resource, like air and water. Anyone can build with it and
-            improve on it, but no one can own or exploits it.
-          </p>
-        </div>
+        <h3 className="text-center text-[1.5rem]">
+          Join a future built for the people
+        </h3>
+        <AppGrid />
       </div>
 
-      <div className="flex flex-col justify-center text-center gap-6 pt-32">
-        <h2 className="text-center">Join a future built for the people</h2>
-        <AppGrid />{" "}
-      </div>
-
-      <div className="h-screen w-full" />
+      <div className="h-24 w-full" />
     </div>
   );
 }

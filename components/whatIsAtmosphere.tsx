@@ -2,8 +2,47 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { GlassCard } from "./card";
 
 export function WhatIsAtmosphere() {
+  return (
+    <div id="what-is-atmosphere" className="relative -mx-12 mt-32 h-screen">
+      <div className="flex flex-col items-center text-center gap-6 px-12 pt-24">
+        <h2>The Atmosphere is an ecosystem</h2>
+        <div className="flex flex-col gap-3">
+          <p className="large-text">
+            Real people, friends, and neighbors, <br />
+            and a network of social apps connecting them.
+          </p>
+          <p className="large-text">Connecting you.</p>
+        </div>
+      </div>
+
+      <div className="townWrapper absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none ">
+        <div className="townImages relative w-[60vw] max-w-[900px] aspect-[2004/1648] mt-32">
+          <Image
+            src="/what-is-atmosphere/town-bg.png"
+            alt=""
+            fill
+            sizes="60vw"
+            className="townBG object-contain object-bottom select-none pointer-events-none"
+            priority
+          />
+
+          <Image
+            src="/what-is-atmosphere/town-fg.png"
+            alt=""
+            fill
+            sizes="60vw"
+            className="townFG object-contain object-bottom select-none pointer-events-none"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function InterconnectedAtmosphere() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -19,7 +58,11 @@ export function WhatIsAtmosphere() {
       const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
       if (total <= 0) return null;
-      return { p: -rect.top / total, total, sectionTopDoc: window.scrollY + rect.top };
+      return {
+        p: -rect.top / total,
+        total,
+        sectionTopDoc: window.scrollY + rect.top,
+      };
     };
 
     const update = () => {
@@ -89,58 +132,127 @@ export function WhatIsAtmosphere() {
       style={{ height: "400vh" }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <div className="flex flex-col items-center text-center gap-6 px-12 pt-24">
-          <h2>The Atmosphere is an ecosystem</h2>
-          <div className="flex flex-col gap-3">
-            <p className="large-text">
-              Real people, friends, and neighbors, <br />
-              and a network of social apps connecting them.
-            </p>
-            <p className="large-text">Connecting you.</p>
-          </div>
+        <div className="flex flex-col items-center text-center gap-3 px-12 pt-24">
+          <h2>
+            In the Atmosphere, the world is always changing,
+            <br /> but you will always be you
+          </h2>
+          <p className="large-text">
+            Finally making social life on the internet
+            <br />
+            as seamless and fluid as the real world
+          </p>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 top-[40vh]">
-          <Image
-            src="/what-is-atmosphere/town-bg.png"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-contain object-bottom select-none pointer-events-none"
-            priority
-          />
-          <Image
-            src="/what-is-atmosphere/forest.png"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-contain object-bottom select-none pointer-events-none"
-            style={{
-              opacity: forestOpacity,
-              transform: `translateY(${forestTranslate}%)`,
-              willChange: "opacity, transform",
-            }}
-          />
-          <Image
-            src="/what-is-atmosphere/town-fg.png"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-contain object-bottom select-none pointer-events-none"
-          />
-          <Image
-            src="/what-is-atmosphere/sky.png"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-contain object-bottom select-none pointer-events-none"
-            style={{
-              opacity: skyOpacity,
-              transform: `translateY(${skyTranslate}%)`,
-              willChange: "opacity, transform",
-            }}
-          />
+        <div className="townWrapper absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none ">
+          <div className="townImages relative w-[60vw] max-w-[900px] aspect-[2004/1648] mt-32">
+            <Image
+              src="/what-is-atmosphere/town-bg.png"
+              alt=""
+              fill
+              sizes="60vw"
+              className="townBG object-contain object-bottom select-none pointer-events-none"
+              priority
+            />
+            {forest(forestOpacity, forestTranslate)}
+
+            <Image
+              src="/what-is-atmosphere/town-fg.png"
+              alt=""
+              fill
+              sizes="60vw"
+              className="townFG object-contain object-bottom select-none pointer-events-none"
+            />
+            {sky(skyOpacity, skyTranslate)}
+          </div>
         </div>
+      </div>
+    </div>
+  );
+}
+function sky(skyOpacity: number, skyTranslate: number) {
+  return (
+    <div className="sky absolute inset-0 ">
+      <Image
+        src="/what-is-atmosphere/sky.png"
+        alt=""
+        fill
+        sizes="60vw"
+        className="object-contain object-bottom select-none pointer-events-none"
+        style={{
+          opacity: skyOpacity,
+          transform: `translateY(${skyTranslate}%)`,
+          willChange: "opacity, transform",
+        }}
+      />
+      <div
+        className="absolute -top-[4px] right-[182px] z-50"
+        style={{
+          opacity: skyOpacity,
+          transform: `translateY(${skyTranslate}%)`,
+          willChange: "opacity, transform",
+        }}
+      >
+        <GlassCard>Hello!</GlassCard>
+      </div>
+      <div
+        className="absolute top-[143px] left-[110px] z-50"
+        style={{
+          opacity: skyOpacity,
+          transform: `translateY(${skyTranslate}%)`,
+          willChange: "opacity, transform",
+        }}
+      >
+        <GlassCard>Hello!</GlassCard>
+      </div>
+    </div>
+  );
+}
+
+function forest(forestOpacity: number, forestTranslate: number) {
+  return (
+    <div className="forest absolute inset-0 ">
+      <Image
+        src="/what-is-atmosphere/forest.png"
+        alt=""
+        fill
+        sizes="60vw"
+        className="object-contain object-bottom select-none pointer-events-none"
+        style={{
+          opacity: forestOpacity,
+          transform: `translateY(${forestTranslate}%)`,
+          willChange: "opacity, transform",
+        }}
+      />
+      <div
+        className="absolute bottom-[180px] left-[205px] z-50"
+        style={{
+          opacity: forestOpacity,
+          transform: `translateY(${forestTranslate}%)`,
+          willChange: "opacity, transform",
+        }}
+      >
+        <GlassCard>Hello!</GlassCard>
+      </div>
+      <div
+        className="absolute bottom-[240px] right-[32px] z-50"
+        style={{
+          opacity: forestOpacity,
+          transform: `translateY(${forestTranslate}%)`,
+          willChange: "opacity, transform",
+        }}
+      >
+        <GlassCard>[content here]</GlassCard>
+      </div>
+      <div
+        className="absolute top-[6px] left-[156px] z-50"
+        style={{
+          opacity: forestOpacity,
+          transform: `translateY(${forestTranslate}%)`,
+          willChange: "opacity, transform",
+        }}
+      >
+        <GlassCard>Hello!</GlassCard>
       </div>
     </div>
   );
