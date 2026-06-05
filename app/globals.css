@@ -7,13 +7,17 @@
     --font-display: var(--font-space-grotesk);
 }
 
+html {
+    scroll-snap-type: y mandatory;
+}
+
 body {
     color: #313a1d;
     font-family: var(--font-ibm-plex-sans), Arial, Helvetica, sans-serif;
     font-size: 1.25rem;
 }
 
-#home-page {
+#home-page.bluePage {
     background: linear-gradient(
         178deg,
         #4381a6 1.12%,
@@ -23,40 +27,85 @@ body {
         #a5bfca 93.35%
     );
 }
-@utility bg-test {
-    background-color: rgba(255, 0, 64, 0.3);
+
+#home-page.greenPage {
+    background: linear-gradient(
+        178deg,
+        #4381a6 1.12%,
+        #c6d6dd 6.63%,
+        #ecf3f6 47.99%,
+        #c6d6dd 82.91%,
+        #a5bfca 93.35%
+    );
 }
+
 @layer base {
-    h1,
-    h2,
-    h3 {
-        font-family: var(--font-space-grotesk), system-ui, sans-serif;
+    .bluePage {
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-space-grotesk), system-ui, sans-serif;
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
+        .large-text {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
     }
 
-    h1 {
-        font-size: 3rem;
-        line-height: 1;
-        font-weight: 700;
-    }
+    .greenPage {
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-space-grotesk), system-ui, sans-serif;
+        }
 
-    h2 {
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 1.2;
-    }
-    h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        line-height: 1;
-    }
-    p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
+        h1 {
+            font-size: 3rem;
+            line-height: 1;
+            font-weight: 700;
+        }
 
-    .large-text {
-        font-size: 1.5rem;
-        line-height: 2.1rem;
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
+        .large-text {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
     }
 }
 
@@ -69,10 +118,18 @@ body {
     }
 }
 
-html {
-    scroll-snap-type: y proximity;
+.absolute-card {
+    position: absolute;
+    transform: translateX(-50%), translateY(50%);
 }
 
-.snap-section {
-    scroll-snap-align: start;
+.fade-in-section {
+    opacity: 0;
+    will-change: opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-section {
+        opacity: 1;
+    }
 }

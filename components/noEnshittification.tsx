@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { FadeIn } from "./fadeIn";
 
 export const NoEnshittification = () => {
   return (
-    <div className="mt-32 mx-auto w-full max-w-[1040px]">
+    <FadeIn className="snap-start snap-always mt-32 mx-auto w-full max-w-[1040px]">
       <div className="bg-[#193315] rounded-2xl px-16 py-[69px] text-white">
         <h2 className="text-center text-[2.25rem]">And it cannot enshittify</h2>
 
@@ -52,6 +53,6 @@ export const NoEnshittification = () => {
           </p>
         </div>
       </div>
-    </div>
+    </FadeIn>
   );
 };
