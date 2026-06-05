@@ -1,4 +1,5 @@
 import { AppCarousel } from "@/components/appCarousel";
+import { AtmosphereHero } from "@/components/atmosphereHero";
 import { AppGrid } from "@/components/appGrid";
 import { FadeIn } from "@/components/fadeIn";
 import { NoEnshittification } from "@/components/noEnshittification";
@@ -24,13 +25,7 @@ export default function Home() {
       className="bluePage flex flex-col justify-center snap-y snap-mandatory"
     >
       <div className="hero w-full h-full max-w-600 pt-30 snap-start snap-always">
-        <Image
-          src="/hero-1.png"
-          alt="Hero"
-          width={2800}
-          height={1539}
-          priority
-        />
+        <AtmosphereHero />
       </div>
 
       <div className="flex flex-col justify-center text-center gap-18 pt-24 snap-center snap-always">
@@ -104,7 +99,7 @@ export default function Home() {
             </div>
             <div className="placeholder absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
               <div className="relative w-full h-full">
-                <div className="absolute right-[24%] -translate-x-1/2 translate-y-1/2 bottom-[40%]">
+                <div className="absolute right-[28%] -translate-x-1/2 translate-y-1/2 bottom-[38%]">
                   <GlassCard className="max-w-fit!">
                     <div className="flex flex-col justify-center text-center mx-auto gap-1">
                       <Image

@@ -104,10 +104,10 @@ function sky() {
       <FadeIn className="absolute inset-0 z-30">
         <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
           <div className="relative w-full h-full">
-            <div className="absolute -top-[4px] right-[182px] z-50">
+            <div className="absolute -top-[7%] right-[5%] z-50">
               <BlueskyPost />
             </div>
-            <div className="absolute top-[143px] left-[110px] z-50">
+            <div className="absolute top-[41%] left-[17%] z-50">
               <BlackskyPost />
             </div>
           </div>
@@ -133,16 +133,16 @@ function forest() {
       </FadeIn>
       {/* content cards: sit above townFG (z-20) */}
       <FadeIn className="absolute inset-0 z-30">
-        <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+        <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] ">
           <div className="relative w-full h-full">
-            <div className="absolute bottom-[180px] left-[205px] z-50">
-              <LeafletPost />
-            </div>
-            <div className="absolute bottom-[240px] right-[32px] z-50">
+            <div className="absolute top-[1%] right-[0%] z-50">
               <PcktPost />
             </div>
-            <div className="absolute top-[6px] left-[156px] z-50">
+            <div className="absolute top-[7%] left-[0%] z-50">
               <OffprintPost />
+            </div>
+            <div className="absolute top-[35%] right-[49%] z-50">
+              <LeafletPost />
             </div>
           </div>
         </div>
