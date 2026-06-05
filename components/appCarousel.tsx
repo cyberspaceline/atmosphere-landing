@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { apps } from "@/components/apps";
 import { GlassCard } from "@/components/card";
 
@@ -43,6 +42,7 @@ const Track = ({
   >
     {POSITIONS.map((pos, i) => {
       const app = apps[i];
+      const Logo = app.logo;
       return (
         <div
           key={app.name}
@@ -52,12 +52,7 @@ const Track = ({
           <GlassCard>
             <div className="flex flex-col justify-center text-center">
               <div className="mx-auto mb-3">
-                <Image
-                  src={app.logo}
-                  alt={`${app.name}'s logo`}
-                  width={48}
-                  height={48}
-                />
+                <Logo size={48} />
               </div>
               <h3 className="pb-1">{app.name}</h3>
               <p>{app.description}</p>

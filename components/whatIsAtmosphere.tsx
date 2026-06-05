@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { GlassCard } from "./card";
 import { FadeIn } from "./fadeIn";
+import { LeafletPost, OffprintPost, PcktPost } from "./publishers";
+import { BlackskyPost, BlueskyPost } from "./microblogging";
 
 export function WhatIsAtmosphere() {
   return (
@@ -46,7 +48,7 @@ export function InterconnectedAtmosphere() {
   return (
     <>
       <div className="sticky top-0 w-screen h-screen z-0 pointer-events-none">
-        <div className="townBG absolute right-12 bottom-12 max-h-[90rem] w-[70vw] aspect-[2004/1648]">
+        <div className="townBG absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
           <Image
             src="/what-is-atmosphere/town-bg.png"
             alt=""
@@ -68,7 +70,7 @@ export function InterconnectedAtmosphere() {
             as seamless and fluid as the real world
           </p>
         </div>
-        <div className="townFG absolute right-12 bottom-12 max-h-[90rem] w-[70vw] aspect-[2004/1648]">
+        <div className="townFG absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
           <Image
             src="/what-is-atmosphere/town-fg.png"
             alt=""
@@ -86,56 +88,65 @@ export function InterconnectedAtmosphere() {
 }
 function sky() {
   return (
-    <FadeIn className="w-screen h-screen relative snap-center snap-always">
-      <div className="max-h-[90rem] w-[70vw] aspect-[2004/1648] absolute right-12 bottom-12 ">
-        <Image
-          src="/what-is-atmosphere/sky.png"
-          alt=""
-          fill
-          className="object-contain object-bottom select-none pointer-events-none"
-        />
-      </div>
-
-      <div className="absolute -top-[4px] right-[182px] z-50">
-        <GlassCard>
-          <p className="text-center">Blacksky Content Here </p>
-        </GlassCard>
-      </div>
-      <div className="absolute top-[143px] left-[110px] z-50">
-        <GlassCard>
-          <p className="text-center">Bluesky Content Here </p>
-        </GlassCard>
-      </div>
-    </FadeIn>
+    <div className="w-screen h-screen relative snap-center snap-always">
+      {/* backdrop: sits between townBG (z-0) and townFG (z-20) */}
+      <FadeIn className="absolute inset-0 z-10">
+        <div className="max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] absolute right-12 bottom-12 ">
+          <Image
+            src="/what-is-atmosphere/sky.png"
+            alt=""
+            fill
+            className="object-contain object-bottom select-none pointer-events-none"
+          />
+        </div>
+      </FadeIn>
+      {/* content cards: sit above townFG (z-20) */}
+      <FadeIn className="absolute inset-0 z-30">
+        <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+          <div className="relative w-full h-full">
+            <div className="absolute -top-[4px] right-[182px] z-50">
+              <BlueskyPost />
+            </div>
+            <div className="absolute top-[143px] left-[110px] z-50">
+              <BlackskyPost />
+            </div>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
   );
 }
 
 function forest() {
   return (
-    <FadeIn className="w-screen h-screen relative snap-center snap-always">
-      <div className="max-h-[90rem] w-[70vw] aspect-[2004/1648] absolute right-12 bottom-12 ">
-        <Image
-          src="/what-is-atmosphere/forest.png"
-          alt=""
-          fill
-          className="object-contain object-bottom select-none pointer-events-none"
-        />
-      </div>
-      <div className="absolute bottom-[180px] left-[205px] z-50">
-        <GlassCard>
-          <p className="text-center">Leaflet Content Here </p>
-        </GlassCard>
-      </div>
-      <div className="absolute bottom-[240px] right-[32px] z-50">
-        <GlassCard>
-          <p className="text-center">Pckt Content Here </p>
-        </GlassCard>
-      </div>
-      <div className="absolute top-[6px] left-[156px] z-50">
-        <GlassCard>
-          <p className="text-center">Offprint Content Here </p>
-        </GlassCard>
-      </div>
-    </FadeIn>
+    <div className="w-screen h-screen relative snap-center snap-always">
+      {/* backdrop: sits between townBG (z-0) and townFG (z-20) */}
+      <FadeIn className="absolute inset-0 z-10">
+        <div className="max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] absolute right-12 bottom-12 ">
+          <Image
+            src="/what-is-atmosphere/forest.png"
+            alt=""
+            fill
+            className="object-contain object-bottom select-none pointer-events-none"
+          />
+        </div>
+      </FadeIn>
+      {/* content cards: sit above townFG (z-20) */}
+      <FadeIn className="absolute inset-0 z-30">
+        <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+          <div className="relative w-full h-full">
+            <div className="absolute bottom-[180px] left-[205px] z-50">
+              <LeafletPost />
+            </div>
+            <div className="absolute bottom-[240px] right-[32px] z-50">
+              <PcktPost />
+            </div>
+            <div className="absolute top-[6px] left-[156px] z-50">
+              <OffprintPost />
+            </div>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
   );
 }

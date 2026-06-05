@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { AppGlassCard } from "./card";
+import { Grain, Margin, Sill } from "./logo";
 
 export const GrainExample = () => {
   return (
@@ -15,7 +16,8 @@ export const GrainExample = () => {
       <AppGlassCard
         className="relative z-10 w-[358px]"
         description="Share and comment on photos on"
-        logo="/logos/grain.svg"
+        logo={Grain}
+        logoColor="white"
         appName="Grain"
         buttonClassName="bg-[#090b12] text-white"
       >
@@ -45,7 +47,8 @@ export const MarginExample = () => {
       <AppGlassCard
         className="relative z-10 w-[288px]"
         description="Annotate the internet together with"
-        logo="/logos/margin.svg"
+        logo={Margin}
+        logoColor="white"
         appName="Margin"
         buttonClassName="bg-[#006eff] text-white"
       >
@@ -75,7 +78,7 @@ export const SillExample = () => {
       <AppGlassCard
         className="relative z-10 w-[316px]"
         description="Find out what everyone’s reading on"
-        logo="/logos/sill.svg"
+        logo={Sill}
         appName="Sill"
         buttonClassName="bg-[#a96b00] text-[#fffab0]"
       >

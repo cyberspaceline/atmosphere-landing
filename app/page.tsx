@@ -9,6 +9,13 @@ import {
 import Image from "next/image";
 import { WhyAtmosphere } from "./whyAtmosphere";
 import { GlassCard } from "@/components/card";
+import { GrainExample, MarginExample, SillExample } from "@/components/friends";
+import {
+  AnisotaExample,
+  BlackskyExample,
+  BlueskyExample,
+  LeafletExample,
+} from "@/components/contentExamples";
 
 export default function Home() {
   return (
@@ -16,7 +23,7 @@ export default function Home() {
       id="home-page"
       className="bluePage flex flex-col justify-center snap-y snap-mandatory"
     >
-      <div className="hero w-full h-full max-w-600 pt-36 snap-start snap-always">
+      <div className="hero w-full h-full max-w-600 pt-30 snap-start snap-always">
         <Image
           src="/hero-1.png"
           alt="Hero"
@@ -37,8 +44,8 @@ export default function Home() {
 
       {/* positioned house */}
       <div className="relative w-screen">
-        <div className="sticky z-40 top-0 h-screen">
-          <div className="house absolute right-12 bottom-12 max-h-[80vh] max-h-[90rem] w-[70vw] aspect-[2004/1648]">
+        <div className="sticky z-40 top-0 h-screen pointer-events-none">
+          <div className="house absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] max-w-[54.72rem] aspect-[2004/1648]">
             <Image
               src="/why-atmosphere/house.png"
               alt=""
@@ -66,7 +73,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="townWrapper absolute right-12 bottom-12 max-h-[90rem] w-[70vw] aspect-[2004/1648] mt-32 flex items-center justify-center z-50 overflow-hidden pointer-events-none">
+            <div className="townWrapper absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] mt-32 flex items-center justify-center z-50 overflow-hidden pointer-events-none">
               <Image
                 src="/what-is-atmosphere/town-bg.png"
                 alt=""
@@ -95,21 +102,24 @@ export default function Home() {
                 This one account signs you into every Atmosphere app.
               </p>
             </div>
-            max-h-[80vh]
-            <div className="absolute right-[24%] -translate-x-1/2 translate-y-1/2 bottom-[33%]">
-              <GlassCard className="max-w-fit!">
-                <div className="flex flex-col justify-center text-center mx-auto gap-1">
-                  <Image
-                    src="/why-atmosphere/eva.png"
-                    alt="Eva Khoury's profile image"
-                    width={64}
-                    height={64}
-                    className="overflow-hidden rounded-full mx-auto mb-4"
-                  />
-                  <h3>Eva Khoury</h3>
-                  <p>@evakhoury.bsky.social</p>
+            <div className="placeholder absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+              <div className="relative w-full h-full">
+                <div className="absolute right-[24%] -translate-x-1/2 translate-y-1/2 bottom-[40%]">
+                  <GlassCard className="max-w-fit!">
+                    <div className="flex flex-col justify-center text-center mx-auto gap-1">
+                      <Image
+                        src="/why-atmosphere/eva.png"
+                        alt="Eva Khoury's profile image"
+                        width={64}
+                        height={64}
+                        className="overflow-hidden rounded-full mx-auto mb-4"
+                      />
+                      <h3>Eva Khoury</h3>
+                      <p>@evakhoury.bsky.social</p>
+                    </div>
+                  </GlassCard>
                 </div>
-              </GlassCard>
+              </div>
             </div>
           </FadeIn>
 
@@ -129,28 +139,20 @@ export default function Home() {
                 <br /> between Atmosphere apps
               </p>
             </div>
-            max-h-[80vh]
-            <Image
-              src="/why-atmosphere/section-2-1.png"
-              alt="Grain photo sharing"
-              width={329}
-              height={576}
-              className="absolute left-[4%] bottom-[16vh] w-[240px] h-auto"
-            />
-            <Image
-              src="/why-atmosphere/section-2-2.png"
-              alt="Sill reading"
-              width={457}
-              height={576}
-              className="absolute left-[22%] bottom-[12vh] w-[340px] h-auto"
-            />
-            <Image
-              src="/why-atmosphere/section-2-3.png"
-              alt="Margin annotations"
-              width={457}
-              height={374}
-              className="absolute left-[48%] bottom-[26vh] w-[340px] h-auto"
-            />
+            <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+              <div className="relative w-full h-full">
+                <div className="absolute top-[10%] left-[53%] z-10 hover:z-50">
+                  <GrainExample />
+                </div>
+
+                <div className="absolute top-[19%] left-[16%] z-20 hover:z-50">
+                  <MarginExample />
+                </div>
+                <div className="absolute top-[62%] -left-[16%] z-30 hover:z-50">
+                  <SillExample />
+                </div>
+              </div>
+            </div>
           </FadeIn>
 
           <FadeIn
@@ -167,34 +169,22 @@ export default function Home() {
                 between your many worlds
               </p>
             </div>
-            <Image
-              src="/why-atmosphere/section-3-1.png"
-              alt="Bluesky"
-              width={386}
-              height={481}
-              className="absolute -left-[64px] bottom-[214px] w-[280px] h-auto"
-            />
-            <Image
-              src="/why-atmosphere/section-3-2.png"
-              alt="Blacksky"
-              width={386}
-              height={481}
-              className="absolute left-[138px] bottom-[140px] w-[280px] h-auto"
-            />
-            <Image
-              src="/why-atmosphere/section-3-3.png"
-              alt="Anisota"
-              width={299}
-              height={484}
-              className="absolute left-[12px] bottom-[102px] w-[220px] h-auto"
-            />
-            <Image
-              src="/why-atmosphere/section-3-4.png"
-              alt="Leaflet"
-              width={382}
-              height={230}
-              className="absolute left-[374px] bottom-[161px] w-[320px] h-auto"
-            />
+            <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+              <div className="relative w-full h-full">
+                <div className="absolute -top-[12%] left-[54%] z-10 hover:z-50">
+                  <BlueskyExample />
+                </div>
+                <div className="absolute top-[2%] left-[37%] z-20 hover:z-50">
+                  <BlackskyExample />
+                </div>
+                <div className="absolute top-[9%] left-[14%] z-30 hover:z-50">
+                  <AnisotaExample />
+                </div>
+                <div className="absolute top-[30%] -left-[22%] z-40 hover:z-50">
+                  <LeafletExample />
+                </div>
+              </div>
+            </div>
           </FadeIn>
           <InterconnectedAtmosphere />
         </div>

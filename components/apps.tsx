@@ -1,25 +1,45 @@
+import type { ComponentType } from "react";
+import type { LogoProps } from "@/components/logo/types";
+import {
+  Anisota,
+  Bluesky,
+  Blento,
+  Eurosky,
+  Grain,
+  Leaflet,
+  Margin,
+  Offprint,
+  Pckt,
+  Popfeed,
+  Semble,
+  Spark,
+  Streamplace,
+  Surf,
+  Tangled,
+} from "@/components/logo";
+
 export type App = {
   name: string;
-  logo: string;
+  logo: ComponentType<LogoProps>;
   description: string;
 };
 
 const placeholder = "app description placeholder here";
 
 export const apps: App[] = [
-  { name: "bluesky", logo: "/logos/bluesky.svg", description: placeholder },
-  { name: "anisota", logo: "/logos/anisota.svg", description: placeholder },
-  { name: "grain", logo: "/logos/grain.svg", description: placeholder },
-  { name: "blento", logo: "/logos/blento.svg", description: placeholder },
-  { name: "semble", logo: "/logos/semble.svg", description: placeholder },
-  { name: "spark", logo: "/logos/spark.svg", description: placeholder },
-  { name: "eurosky", logo: "/logos/eurosky.svg", description: placeholder },
-  { name: "pckt", logo: "/logos/pckt.svg", description: placeholder },
-  { name: "offprint", logo: "/logos/offprint.svg", description: placeholder },
-  { name: "leaflet", logo: "/logos/leaflet.svg", description: placeholder },
-  { name: "streamplace", logo: "/logos/streamplace.svg", description: placeholder },
-  { name: "surf", logo: "/logos/surf.svg", description: placeholder },
-  { name: "tangled", logo: "/logos/tangled.svg", description: placeholder },
-  { name: "popfeed", logo: "/logos/popfeed.svg", description: placeholder },
-  { name: "margin", logo: "/logos/margin.svg", description: placeholder },
+  { name: "bluesky", logo: Bluesky, description: placeholder },
+  { name: "anisota", logo: Anisota, description: placeholder },
+  { name: "grain", logo: Grain, description: placeholder },
+  { name: "blento", logo: Blento, description: placeholder },
+  { name: "semble", logo: Semble, description: placeholder },
+  { name: "spark", logo: Spark, description: placeholder },
+  { name: "eurosky", logo: Eurosky, description: placeholder },
+  { name: "pckt", logo: Pckt, description: placeholder },
+  { name: "offprint", logo: Offprint, description: placeholder },
+  { name: "leaflet", logo: Leaflet, description: placeholder },
+  { name: "streamplace", logo: Streamplace, description: placeholder },
+  { name: "surf", logo: Surf, description: placeholder },
+  { name: "tangled", logo: Tangled, description: placeholder },
+  { name: "popfeed", logo: Popfeed, description: placeholder },
+  { name: "margin", logo: Margin, description: placeholder },
 ];
