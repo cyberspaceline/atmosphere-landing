@@ -1,56 +1,13 @@
-"use client";
-
+import { FadeIn } from "../fadeIn";
+import { TownWrapper } from "../townWrapper";
+import { BlueskyPost, BlackskyPost } from "./microblogging";
+import { PcktPost, OffprintPost, LeafletPost } from "./publishers";
 import Image from "next/image";
-import { GlassCard } from "./card";
-import { FadeIn } from "./fadeIn";
-import { LeafletPost, OffprintPost, PcktPost } from "./publishers";
-import { BlackskyPost, BlueskyPost } from "./microblogging";
 
-export function WhatIsAtmosphere() {
-  return (
-    <div id="what-is-atmosphere" className="relative -mx-12 mt-32 h-screen">
-      <div className="flex flex-col items-center text-center gap-6 px-12 pt-24">
-        <h2>The Atmosphere is an ecosystem</h2>
-        <div className="flex flex-col gap-3">
-          <p className="large-text">
-            Real people, friends, and neighbors, <br />
-            and a network of social apps connecting them.
-          </p>
-          <p className="large-text">Connecting you.</p>
-        </div>
-      </div>
-
-      <div className="townWrapper absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none ">
-        <div className="townImages relative w-[60vw] max-w-[900px] aspect-[2004/1648] mt-32">
-          <Image
-            src="/what-is-atmosphere/town.png"
-            alt=""
-            fill
-            sizes="60vw"
-            className="townImg object-contain object-bottom select-none pointer-events-none"
-            priority
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function InterconnectedAtmosphere() {
+export function WhyAtmosphere() {
   return (
     <>
       <div className="sticky top-0 w-screen h-screen z-0 pointer-events-none">
-        <div className="townBG absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
-          <Image
-            src="/what-is-atmosphere/town.png"
-            alt=""
-            fill
-            className="object-contain object-bottom select-none pointer-events-none"
-            priority
-          />
-        </div>
-      </div>
-      <div className="sticky top-0 w-screen h-screen z z-20 -mt-[100vh] pointer-events-none">
         <div className="absolute top-12 left-12 pointer-events-none">
           <h2>
             In the Atmosphere, the world is always changing,
@@ -62,8 +19,16 @@ export function InterconnectedAtmosphere() {
             as seamless and fluid as the real world
           </p>
         </div>
+        <TownWrapper className="townBG">
+          <Image
+            src="/town/town.png"
+            alt=""
+            fill
+            className="object-contain object-bottom select-none pointer-events-none"
+            priority
+          />
+        </TownWrapper>
       </div>
-
       <div className="w-screen h-screen snap-center snap-always" />
       {forest()}
       {sky()}
@@ -76,18 +41,18 @@ function sky() {
     <div className="w-screen h-screen relative snap-center snap-always">
       {/* backdrop: sits between townBG (z-0) and townFG (z-20) */}
       <FadeIn className="absolute inset-0 z-10">
-        <div className="max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] absolute right-12 bottom-12 ">
+        <TownWrapper>
           <Image
-            src="/what-is-atmosphere/town-cloud.png"
+            src="/town/town-cloud.png"
             alt=""
             fill
             className="object-contain object-bottom select-none pointer-events-none"
           />
-        </div>
+        </TownWrapper>
       </FadeIn>
       {/* content cards: sit above townFG (z-20) */}
       <FadeIn className="absolute inset-0 z-30">
-        <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+        <TownWrapper>
           <div className="relative w-full h-full">
             <div className="absolute -top-[7%] right-[5%] z-50">
               <BlueskyPost />
@@ -96,7 +61,7 @@ function sky() {
               <BlackskyPost />
             </div>
           </div>
-        </div>
+        </TownWrapper>
       </FadeIn>
     </div>
   );
@@ -107,18 +72,18 @@ function forest() {
     <div className="w-screen h-screen relative snap-center snap-always">
       {/* backdrop: sits between townBG (z-0) and townFG (z-20) */}
       <FadeIn className="absolute inset-0 z-10">
-        <div className="max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] absolute right-12 bottom-12 ">
+        <TownWrapper>
           <Image
-            src="/what-is-atmosphere/town-forest.png"
+            src="/town/town-forest.png"
             alt=""
             fill
             className="object-contain object-bottom select-none pointer-events-none"
           />
-        </div>
+        </TownWrapper>
       </FadeIn>
       {/* content cards: sit above townFG (z-20) */}
       <FadeIn className="absolute inset-0 z-30">
-        <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] ">
+        <TownWrapper>
           <div className="relative w-full h-full">
             <div className="absolute top-[1%] right-[0%] z-50">
               <PcktPost />
@@ -130,7 +95,7 @@ function forest() {
               <LeafletPost />
             </div>
           </div>
-        </div>
+        </TownWrapper>
       </FadeIn>
     </div>
   );
@@ -141,18 +106,18 @@ function pond() {
     <div className="w-screen h-screen relative snap-center snap-always">
       {/* backdrop: sits between townBG (z-0) and townFG (z-20) */}
       <FadeIn className="absolute inset-0 z-10">
-        <div className="max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] absolute right-12 bottom-12 ">
+        <TownWrapper>
           <Image
-            src="/what-is-atmosphere/town-pond.png"
+            src="/town/town-pond.png"
             alt=""
             fill
             className="object-contain object-bottom select-none pointer-events-none"
           />
-        </div>
+        </TownWrapper>
       </FadeIn>
       {/* content cards: sit above townFG (z-20) */}
       <FadeIn className="absolute inset-0 z-30">
-        <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+        <TownWrapper>
           <div className="relative w-full h-full">
             <div className="absolute -top-[7%] right-[5%] z-50">
               <BlueskyPost />
@@ -161,7 +126,7 @@ function pond() {
               <BlackskyPost />
             </div>
           </div>
-        </div>
+        </TownWrapper>
       </FadeIn>
     </div>
   );

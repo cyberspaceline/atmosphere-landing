@@ -1,4 +1,4 @@
-import { apps } from "@/components/apps";
+import { apps } from "@/components/atmosphere-apps/apps";
 import { GlassCard } from "@/components/card";
 
 const TRACK_WIDTH = 2100;

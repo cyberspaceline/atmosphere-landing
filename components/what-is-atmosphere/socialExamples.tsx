@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { AppGlassCard } from "./card";
-import { Grain, Margin, Sill } from "./logo";
+import { AppGlassCard } from "../card";
+import { Grain, Margin, Sill } from "../logo";
 
 export const GrainExample = () => {
   return (

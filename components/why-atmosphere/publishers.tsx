@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LinkGlassCard } from "./card";
+import { LinkGlassCard } from "../card";
 
 export const OffprintPost = () => {
   return (

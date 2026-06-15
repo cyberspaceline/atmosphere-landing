@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { AppGlassCard } from "./card";
-import { Anisota, Blacksky, Bluesky, Leaflet } from "./logo";
+import { AppGlassCard } from "../card";
+import { Anisota, Blacksky, Bluesky, Leaflet } from "../logo";
 
 export const BlueskyExample = () => {
   return (

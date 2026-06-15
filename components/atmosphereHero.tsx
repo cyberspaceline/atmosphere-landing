@@ -22,8 +22,8 @@ const SMOOTHING = 0.18;
 // Idle float: while the pointer is away, each letter drifts gently up and down
 // within 0..FLOAT_MAX px (the shadow follows by the usual lift ratio). The
 // float fades out as the pointer's proximity lift takes over.
-const FLOAT_MAX = 12; // px, idle vertical drift range for a letter
-const FLOAT_SPEED = 0.6; // base angular speed — higher bobs faster
+const FLOAT_MAX = 10; // px, idle vertical drift range for a letter
+const FLOAT_SPEED = 1; // base angular speed — higher bobs faster
 
 // Manual nudge added to EVERY measured center (hero %: x of width, y of
 // height). The measured centers are the opaque bounding-box midpoints, which
@@ -45,16 +45,56 @@ type Glyph = {
 };
 
 const GLYPHS: Glyph[] = [
-  { id: "S", letterSrc: "/atmosphere/letter-S.png", shadowSrc: "/atmosphere/shadow-S.png" },
-  { id: "O", letterSrc: "/atmosphere/letter-O.png", shadowSrc: "/atmosphere/shadow-O.png" },
-  { id: "M", letterSrc: "/atmosphere/letter-M.png", shadowSrc: "/atmosphere/shadow-M.png" },
-  { id: "T", letterSrc: "/atmosphere/letter-T.png", shadowSrc: "/atmosphere/shadow-T.png" },
-  { id: "A", letterSrc: "/atmosphere/letter-A.png", shadowSrc: "/atmosphere/shadow-A.png" },
-  { id: "E2", letterSrc: "/atmosphere/letter-E2.png", shadowSrc: "/atmosphere/shadow-E2.png" },
-  { id: "R", letterSrc: "/atmosphere/letter-R.png", shadowSrc: "/atmosphere/shadow-R.png" },
-  { id: "E1", letterSrc: "/atmosphere/letter-E1.png", shadowSrc: "/atmosphere/shadow-E1.png" },
-  { id: "H", letterSrc: "/atmosphere/letter-H.png", shadowSrc: "/atmosphere/shadow-H.png" },
-  { id: "P", letterSrc: "/atmosphere/letter-P.png", shadowSrc: "/atmosphere/shadow-P.png" },
+  {
+    id: "S",
+    letterSrc: "/atmosphere/letter-S.png",
+    shadowSrc: "/atmosphere/shadow-S.png",
+  },
+  {
+    id: "O",
+    letterSrc: "/atmosphere/letter-O.png",
+    shadowSrc: "/atmosphere/shadow-O.png",
+  },
+  {
+    id: "M",
+    letterSrc: "/atmosphere/letter-M.png",
+    shadowSrc: "/atmosphere/shadow-M.png",
+  },
+  {
+    id: "T",
+    letterSrc: "/atmosphere/letter-T.png",
+    shadowSrc: "/atmosphere/shadow-T.png",
+  },
+  {
+    id: "A",
+    letterSrc: "/atmosphere/letter-A.png",
+    shadowSrc: "/atmosphere/shadow-A.png",
+  },
+  {
+    id: "E2",
+    letterSrc: "/atmosphere/letter-E2.png",
+    shadowSrc: "/atmosphere/shadow-E2.png",
+  },
+  {
+    id: "R",
+    letterSrc: "/atmosphere/letter-R.png",
+    shadowSrc: "/atmosphere/shadow-R.png",
+  },
+  {
+    id: "E1",
+    letterSrc: "/atmosphere/letter-E1.png",
+    shadowSrc: "/atmosphere/shadow-E1.png",
+  },
+  {
+    id: "H",
+    letterSrc: "/atmosphere/letter-H.png",
+    shadowSrc: "/atmosphere/shadow-H.png",
+  },
+  {
+    id: "P",
+    letterSrc: "/atmosphere/letter-P.png",
+    shadowSrc: "/atmosphere/shadow-P.png",
+  },
 ];
 
 // Two detuned sine waves per glyph (deterministic from index) so each letter
