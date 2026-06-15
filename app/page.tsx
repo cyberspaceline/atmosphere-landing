@@ -3,12 +3,8 @@ import { AtmosphereHero } from "@/components/atmosphereHero";
 import { AppGrid } from "@/components/appGrid";
 import { FadeIn } from "@/components/fadeIn";
 import { NoEnshittification } from "@/components/noEnshittification";
-import {
-  InterconnectedAtmosphere,
-  WhatIsAtmosphere,
-} from "@/components/whatIsAtmosphere";
+import { InterconnectedAtmosphere } from "@/components/whatIsAtmosphere";
 import Image from "next/image";
-import { WhyAtmosphere } from "./whyAtmosphere";
 import { GlassCard } from "@/components/card";
 import { GrainExample, MarginExample, SillExample } from "@/components/friends";
 import {
@@ -22,13 +18,13 @@ export default function Home() {
   return (
     <div
       id="home-page"
-      className="bluePage flex flex-col justify-center snap-y snap-mandatory"
+      className="greenPage flex flex-col justify-center snap-y snap-mandatory"
     >
-      <div className="hero w-full h-full max-w-600 pt-30 snap-start snap-always">
+      <div className="relative hero w-full h-screen max-w-600 flex items-center px-6  snap-start snap-always">
         <AtmosphereHero />
       </div>
 
-      <div className="flex flex-col justify-center text-center gap-18 pt-24 snap-center snap-always">
+      <div className="h-screen flex flex-col items-center justify-center text-center gap-12 snap-center snap-always">
         <h2 className="text-center">
           Join the millions already connecting
           <br />
@@ -70,18 +66,11 @@ export default function Home() {
 
             <div className="townWrapper absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] mt-32 flex items-center justify-center z-50 overflow-hidden pointer-events-none">
               <Image
-                src="/what-is-atmosphere/town-bg.png"
+                src="/what-is-atmosphere/town.png"
                 alt=""
                 fill
                 className="townBG object-contain object-bottom select-none pointer-events-none"
                 priority
-              />
-
-              <Image
-                src="/what-is-atmosphere/town-fg.png"
-                alt=""
-                fill
-                className="townFG object-contain object-bottom select-none pointer-events-none"
               />
             </div>
           </FadeIn>

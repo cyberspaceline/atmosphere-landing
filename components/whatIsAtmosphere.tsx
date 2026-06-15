@@ -23,20 +23,12 @@ export function WhatIsAtmosphere() {
       <div className="townWrapper absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none ">
         <div className="townImages relative w-[60vw] max-w-[900px] aspect-[2004/1648] mt-32">
           <Image
-            src="/what-is-atmosphere/town-bg.png"
+            src="/what-is-atmosphere/town.png"
             alt=""
             fill
             sizes="60vw"
-            className="townBG object-contain object-bottom select-none pointer-events-none"
+            className="townImg object-contain object-bottom select-none pointer-events-none"
             priority
-          />
-
-          <Image
-            src="/what-is-atmosphere/town-fg.png"
-            alt=""
-            fill
-            sizes="60vw"
-            className="townFG object-contain object-bottom select-none pointer-events-none"
           />
         </div>
       </div>
@@ -50,7 +42,7 @@ export function InterconnectedAtmosphere() {
       <div className="sticky top-0 w-screen h-screen z-0 pointer-events-none">
         <div className="townBG absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
           <Image
-            src="/what-is-atmosphere/town-bg.png"
+            src="/what-is-atmosphere/town.png"
             alt=""
             fill
             className="object-contain object-bottom select-none pointer-events-none"
@@ -70,19 +62,12 @@ export function InterconnectedAtmosphere() {
             as seamless and fluid as the real world
           </p>
         </div>
-        <div className="townFG absolute right-12 bottom-12 max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
-          <Image
-            src="/what-is-atmosphere/town-fg.png"
-            alt=""
-            fill
-            className="object-contain object-bottom select-none pointer-events-none"
-          />
-        </div>
       </div>
 
       <div className="w-screen h-screen snap-center snap-always" />
       {forest()}
       {sky()}
+      {pond()}
     </>
   );
 }
@@ -93,7 +78,7 @@ function sky() {
       <FadeIn className="absolute inset-0 z-10">
         <div className="max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] absolute right-12 bottom-12 ">
           <Image
-            src="/what-is-atmosphere/sky.png"
+            src="/what-is-atmosphere/town-cloud.png"
             alt=""
             fill
             className="object-contain object-bottom select-none pointer-events-none"
@@ -124,7 +109,7 @@ function forest() {
       <FadeIn className="absolute inset-0 z-10">
         <div className="max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] absolute right-12 bottom-12 ">
           <Image
-            src="/what-is-atmosphere/forest.png"
+            src="/what-is-atmosphere/town-forest.png"
             alt=""
             fill
             className="object-contain object-bottom select-none pointer-events-none"
@@ -143,6 +128,37 @@ function forest() {
             </div>
             <div className="absolute top-[35%] right-[49%] z-50">
               <LeafletPost />
+            </div>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
+  );
+}
+
+function pond() {
+  return (
+    <div className="w-screen h-screen relative snap-center snap-always">
+      {/* backdrop: sits between townBG (z-0) and townFG (z-20) */}
+      <FadeIn className="absolute inset-0 z-10">
+        <div className="max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648] absolute right-12 bottom-12 ">
+          <Image
+            src="/what-is-atmosphere/town-pond.png"
+            alt=""
+            fill
+            className="object-contain object-bottom select-none pointer-events-none"
+          />
+        </div>
+      </FadeIn>
+      {/* content cards: sit above townFG (z-20) */}
+      <FadeIn className="absolute inset-0 z-30">
+        <div className="placeholder absolute right-12 bottom-12  max-h-[45rem] w-[70vw] max-w-[54.72rem] aspect-[2004/1648]">
+          <div className="relative w-full h-full">
+            <div className="absolute -top-[7%] right-[5%] z-50">
+              <BlueskyPost />
+            </div>
+            <div className="absolute top-[41%] left-[17%] z-50">
+              <BlackskyPost />
             </div>
           </div>
         </div>

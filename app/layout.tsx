@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
+import {
+  Space_Grotesk,
+  IBM_Plex_Sans,
+  Bricolage_Grotesque,
+} from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -9,6 +13,11 @@ const spaceGrotesk = Space_Grotesk({
 
 const IBMPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
+  weight: ["400", "600", "700"],
+  subsets: ["latin"],
+});
+const bricolageGrotesque = Bricolage_Grotesque({
+  variable: "--font-bricolage-grotesque",
   weight: ["400", "600", "700"],
   subsets: ["latin"],
 });
@@ -26,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${IBMPlexSans.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${bricolageGrotesque.variable}  ${IBMPlexSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
