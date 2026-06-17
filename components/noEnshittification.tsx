@@ -5,9 +5,7 @@ export const NoEnshittification = () => {
   return (
     <FadeIn className="snap-start snap-always mt-32 mx-auto w-full px-6 max-w-[720px] h-screen  flex place-items-center">
       <div className="h-fit mx-auto text-center">
-        <h2 className="text-center text-[2.25rem]">
-          And it will always be built for you
-        </h2>
+        <h2 className="text-center text-[2.25rem]">Built to only get better</h2>
         <div className="mx-auto max-w-150 h-auto px-6 py-6">
           <Image
             src="/no-enshittification/bench.png"
@@ -32,8 +30,8 @@ export const NoEnshittification = () => {
             migrating, no deleting, not even a new account.
           </p>
           <p>
-            If Bluesky isn't for you, use Blacksky, Witchsky, Mu, or Anisota.You
-            are free to choose the best option for <em>you.</em>
+            If Bluesky isn&apos;t for you, use Blacksky, Witchsky, Mu, or
+            Anisota.You are free to choose the best option for <em>you.</em>
           </p>
         </div>
       </div>

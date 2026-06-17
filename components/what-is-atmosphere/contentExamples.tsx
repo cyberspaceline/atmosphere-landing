@@ -2,7 +2,8 @@ import Image from "next/image";
 import { Anisota, Blacksky, Bluesky, Leaflet } from "../logo";
 import type { ComponentType, ReactNode } from "react";
 import { LogoProps } from "../logo/types";
-import { LinkButton } from "../your-friends/linkPill";
+import { LinkButton } from "../your-friends/linkButton";
+import { FLOAT_CLASS, floatStyle } from "@/lib/float";
 
 export const BlueskyExample = () => {
   return (
@@ -14,8 +15,10 @@ export const BlueskyExample = () => {
       buttonBg="#0a7aff"
       buttonText="#ffffff"
       src="/friends/bluesky-post.png"
-      bottom="48%"
+      bottom="45%"
       left="70%"
+      floatDuration="5s"
+      floatDelay="0s"
     />
   );
 };
@@ -30,8 +33,10 @@ export const BlackskyExample = () => {
       buttonBg="#000000"
       buttonText="#ffffff"
       src="/friends/blacksky-post.png"
-      bottom="38%"
+      bottom="35%"
       left="50%"
+      floatDuration="6.5s"
+      floatDelay="-2s"
     />
   );
 };
@@ -46,8 +51,10 @@ export const AnisotaExample = () => {
       buttonBg="#1e1e1e"
       buttonText="#ffffff"
       src="/friends/anisota-post.png"
-      bottom="28%"
+      bottom="25%"
       left="34%"
+      floatDuration="4.5s"
+      floatDelay="-1s"
     />
   );
 };
@@ -62,8 +69,10 @@ export const LeafletExample = () => {
       buttonBg="#639431"
       buttonText="#ffffff"
       src="/friends/leaflet-post.png"
-      bottom="23%"
+      bottom="20%"
       left="13%"
+      floatDuration="5.5s"
+      floatDelay="-3s"
     />
   );
 };
@@ -78,6 +87,8 @@ const Card = ({
   className = "",
   bottom,
   left,
+  floatDuration = "5s",
+  floatDelay = "0s",
 }: {
   appName: string;
   description: string;
@@ -88,11 +99,17 @@ const Card = ({
   className?: string;
   bottom: string;
   left: string;
+  floatDuration?: string;
+  floatDelay?: string;
 }) => {
   return (
     <div
-      className={`${className} absolute -translate-x-1/2 z-30 transition duration-300 group-hover/content-cards:blur-sm hover:blur-none! hover:z-50 hover:-translate-y-2 flex flex-col items-end gap-2`}
-      style={{ bottom, left }}
+      className={`${className} ${FLOAT_CLASS} absolute -translate-x-1/2 z-30 transition duration-300 group-hover/content-cards:blur-sm hover:blur-none! hover:z-50 hover:-translate-y-2 flex flex-col items-end gap-2`}
+      style={{
+        bottom,
+        left,
+        ...floatStyle({ duration: floatDuration, delay: floatDelay }),
+      }}
     >
       <Image
         src={src}

@@ -229,8 +229,8 @@ export function AtmosphereHero({ className = "" }: { className?: string }) {
           className="w-auto h-full"
         />
       </div>
-      <h2 className="absolute bottom-[6%] right-[4%] text-[8cqh] w-fit">
-        as free as air and water
+      <h2 className="absolute bottom-[7%] right-[8%] text-[8cqh] text-[#9DB6BF] w-fit">
+        The good vibes internet
       </h2>
 
       {/* Shadows — full-canvas layers behind every letter */}

@@ -1,5 +1,6 @@
 import { apps } from "@/components/atmosphere-apps/apps";
 import { GlassCard } from "@/components/card";
+import { FLOAT_CLASS, floatStyle } from "@/lib/float";
 
 const CLOUD_WIDTH = 1040;
 const CLOUD_HEIGHT = 480;
@@ -52,12 +53,12 @@ export const AppCloud = () => (
             style={{ left: pos.x, top: pos.y }}
           >
             <div
-              className="app-float"
-              style={{
-                ["--float-distance" as string]: `${pos.distance}px`,
-                animationDuration: `${pos.duration}s`,
-                animationDelay: `${pos.delay}s`,
-              }}
+              className={FLOAT_CLASS}
+              style={floatStyle({
+                distance: `${pos.distance}px`,
+                duration: `${pos.duration}s`,
+                delay: `${pos.delay}s`,
+              })}
             >
               <div className="origin-center transition-transform duration-300 ease-out group-hover:scale-[1.18]">
                 <GlassCard>

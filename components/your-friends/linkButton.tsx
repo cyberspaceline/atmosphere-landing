@@ -17,7 +17,7 @@ export function LinkButton({
   const { text, appName, logo: Logo, logoColor, pillBg, pillText } = link;
   return (
     <div className="flex items-center gap-2">
-      <p className="whitespace-nowrap text-[16px] text-[#757575]">{text}</p>
+      <p className="whitespace-nowrap text-[16px] text-[#6C813D]">{text}</p>
       <span
         className={`flex items-center justify-center gap-1 rounded-[8px] px-2 py-1 ${
           interactive

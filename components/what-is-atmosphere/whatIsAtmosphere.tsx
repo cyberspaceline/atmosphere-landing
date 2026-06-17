@@ -12,6 +12,7 @@ import {
   LeafletExample,
 } from "./contentExamples";
 import { PopoverArrow } from "../PopoverArrow";
+import { FLOAT_CLASS, floatStyle } from "@/lib/float";
 
 export function WhatIsAtmosphere() {
   return (
@@ -37,6 +38,13 @@ export function WhatIsAtmosphere() {
         >
           <Image
             src="/town/town.png"
+            alt=""
+            fill
+            className="town object-contain object-bottom select-none pointer-events-none"
+            priority
+          />
+          <Image
+            src="/town/town-default.png"
             alt=""
             fill
             className="townBG object-contain object-bottom select-none pointer-events-none"
@@ -69,7 +77,10 @@ export function WhatIsAtmosphere() {
                 className="object-contain object-bottom select-none pointer-events-none"
               />
             </div>
-            <div className="absolute -translate-x-1/2 left-[42%]  bottom-[22%]">
+            <div
+              className={`${FLOAT_CLASS} absolute -translate-x-1/2 left-[42%]  bottom-[22%]`}
+              style={floatStyle()}
+            >
               <div className="max-w-fit! rounded-lg  bg-[rgba(255,255,255,.6)] p-4 py-5 border border-[#CFDDE0]">
                 <div className="flex flex-col justify-center text-center mx-auto gap-1">
                   <Image
@@ -97,10 +108,10 @@ export function WhatIsAtmosphere() {
         className="snap-always snap-center h-screen w-full max-w-[1400px] mx-auto relative z-20"
       >
         <div className="absolute top-16 left-16 ">
-          <h2>It stores everything you’ve made</h2>
+          <h2>It carries everything you’ve made</h2>
           <p className="large-text mt-3">
-            Build your content, posts, and feeds anywhere
-            <br /> and access them across the Atmosphere
+            Create content, posts, and feeds
+            <br /> and bring them with you everywhere
           </p>
         </div>
         <TownWrapper>
@@ -131,8 +142,8 @@ export function WhatIsAtmosphere() {
           <h2>And the people and places you love</h2>
 
           <p className="mt-3 large-text">
-            Keep your friends and community with you across all
-            <br /> your different contexts and apps
+            Your friends and community stay with you across
+            <br /> your different apps, mediums, and contexts,
           </p>
         </div>
 

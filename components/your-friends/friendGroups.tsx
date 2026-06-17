@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BUBBLES, GROUPS } from "./groups";
-import { LinkButton } from "./linkPill";
+import { LinkButton } from "./linkButton";
 import { SpeechBubble } from "./speechBubble";
 
 /** How long each group stays fully visible before the next cross-fades in (ms). */

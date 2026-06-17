@@ -55,11 +55,20 @@ export default function Home() {
 
       <NoEnshittification />
 
-      <FadeIn className="w-full max-w-[1400px] mx-auto snap-end snap-always flex flex-col justify-center text-center gap-2 pt-32">
-        <h2 className="text-center ">Join the Atmosphere</h2>
-        <p className="large-text">A future built for the people</p>
-        <AppGrid />
-        <div className="h-24 w-full" />
+      <FadeIn className="w-full max-w-[1400px] h-screen mx-auto snap-end snap-always flex place-items-center justify-center">
+        <div className="flex flex-col justify-center place-items-center text-center gap-2 ">
+          <div className="relative h-48 w-48 mx-auto mb-3">
+            <Image
+              src="/no-enshittification/lil-guys.png"
+              alt=""
+              fill
+              className="object-contain object-bottom select-none pointer-events-none"
+            />
+          </div>
+          <h2 className="text-center ">Try the Atmosphere</h2>
+          <p className="large-text">A future built for people, not platforms</p>
+          <AppGrid />
+        </div>
       </FadeIn>
     </div>
   );
