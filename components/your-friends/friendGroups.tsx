@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BUBBLES, GROUPS } from "./groups";
-import { LinkPill } from "./linkPill";
+import { LinkButton } from "./linkPill";
 import { SpeechBubble } from "./speechBubble";
 
 /** How long each group stays fully visible before the next cross-fades in (ms). */
-const CYCLE_INTERVAL = 4500;
+const CYCLE_INTERVAL = 3500;
 
 /**
  * The linked app groups that float above the town. They cross-fade in sequence
@@ -44,49 +44,40 @@ export function FriendGroups() {
   }, [inView, paused]);
 
   return (
-    <div
-      ref={ref}
-      className="absolute right-[3vw] top-[14%] z-30 aspect-[796/593] w-[min(49.75rem,58vw)] pointer-events-none"
-    >
+    <>
       {/* example column: link pill + cross-fading example image */}
-      <div className="absolute left-0 top-0 flex w-[74%] flex-col items-end gap-2">
-        <div className="relative flex h-[30px] w-full justify-end">
+      <div ref={ref} className="absolute left-0 right-60 bottom-44">
+        <div className="relative">
           {GROUPS.map((g, i) => {
             const visible = i === active;
             return (
               <div
                 key={g.key}
                 aria-hidden={!visible}
-                className="absolute right-0 top-0 transition-opacity duration-700"
+                className={`flex flex-col items-end gap-2 transition-opacity duration-700 ${
+                  visible ? "" : "pointer-events-none absolute inset-0"
+                }`}
                 style={{ opacity: visible ? 1 : 0 }}
               >
-                <LinkPill
-                  link={g.link}
-                  interactive={visible}
-                  onHoverChange={setPaused}
-                />
-              </div>
-            );
-          })}
-        </div>
+                <div className="relative flex w-full justify-end">
+                  <LinkButton
+                    link={g.link}
+                    interactive={visible}
+                    onHoverChange={setPaused}
+                  />
+                </div>
 
-        <div className="relative aspect-[589/394] w-full">
-          {GROUPS.map((g, i) => {
-            const visible = i === active;
-            return (
-              <div
-                key={g.key}
-                aria-hidden={!visible}
-                className="absolute inset-0 overflow-hidden rounded-[10px] border-2 transition-opacity duration-700"
-                style={{ opacity: visible ? 1 : 0, borderColor: g.example.border }}
-              >
-                <Image
-                  src={g.example.src}
-                  alt={g.example.alt}
-                  fill
-                  sizes="(max-width: 768px) 74vw, 600px"
-                  className="select-none object-cover"
-                />
+                <div
+                  className="relative aspect-3/2 h-auto w-full overflow-hidden rounded-[10px] border-2"
+                  style={{ borderColor: g.example.border }}
+                >
+                  <Image
+                    src={g.example.src}
+                    alt={g.example.alt}
+                    fill
+                    className="select-none object-cover"
+                  />
+                </div>
               </div>
             );
           })}
@@ -102,6 +93,6 @@ export function FriendGroups() {
           active={active}
         />
       ))}
-    </div>
+    </>
   );
 }

@@ -35,27 +35,27 @@ const ENVIRONMENTS: Environment[] = [
     key: "forest",
     image: "/town/town-forest.png",
     cards: [
-      { Post: PcktPost, pos: "bottom-[55%] left-[86.5%]" },
-      { Post: OffprintPost, pos: "bottom-[39%] left-[20%]" },
-      { Post: LeafletPost, pos: "bottom-[8%] left-[47.5%]" },
+      { Post: PcktPost, pos: "bottom-[60%] left-[86.5%]" },
+      { Post: OffprintPost, pos: "bottom-[43%] left-[20%]" },
+      { Post: LeafletPost, pos: "bottom-[13%] left-[47.5%]" },
     ],
   },
   {
     key: "cloud",
     image: "/town/town-cloud.png",
     cards: [
+      { Post: BlueskyPost, pos: "bottom-[87%] left-[77.5%]" },
+      { Post: BlackskyPost, pos: "bottom-[27%] left-[50.5%]" },
+    ],
+  },
+  {
+    key: "pond",
+    image: "/town/town-pond.png",
+    cards: [
       { Post: BlueskyPost, pos: "-top-[7%] right-[5%]" },
       { Post: BlackskyPost, pos: "top-[41%] left-[17%]" },
     ],
   },
-  // {
-  //   key: "pond",
-  //   image: "/town/town-pond.png",
-  //   cards: [
-  //     { Post: BlueskyPost, pos: "-top-[7%] right-[5%]" },
-  //     { Post: BlackskyPost, pos: "top-[41%] left-[17%]" },
-  //   ],
-  // },
 ];
 
 export function WhyAtmosphere() {
@@ -100,9 +100,9 @@ export function WhyAtmosphere() {
   return (
     <div
       ref={ref}
-      className="w-screen h-screen relative snap-center snap-always"
+      className="w-full max-w-[1400px] mx-auto h-screen relative snap-center snap-always"
     >
-      <div className="absolute top-12 left-12 z-40 pointer-events-none">
+      <div className="absolute top-16 left-16 z-40 pointer-events-none">
         <h2>
           Here, the world is always changing,
           <br /> but you will always be you

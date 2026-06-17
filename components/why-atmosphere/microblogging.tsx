@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { LinkGlassCard } from "../card";
 import { PopoverArrow } from "../PopoverArrow";
 
 export const BlueskyPost = () => {
   return (
-    <div className="w-[324px] relative">
+    <div className="w-72 relative">
       <Image
         src="/microblogging/bluesky.png"
         alt="A post on Bluesky"
@@ -21,7 +20,7 @@ export const BlueskyPost = () => {
 
 export const BlackskyPost = () => {
   return (
-    <div className="w-[326px] relative">
+    <div className="w-72 relative">
       <Image
         src="/microblogging/blacksky.png"
         alt="A post on Blacksky"

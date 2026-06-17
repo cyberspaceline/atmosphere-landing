@@ -4,7 +4,7 @@ import { PopoverArrow } from "../PopoverArrow";
 
 export const OffprintPost = () => {
   return (
-    <div className="relative w-[328px] scale-80 opacity-90">
+    <div className="relative w-60 opacity-90">
       <Image
         src="/publishers/offprint.png"
         alt="An article written on Offprint"
@@ -21,7 +21,7 @@ export const OffprintPost = () => {
 
 export const PcktPost = () => {
   return (
-    <div className="w-[328px] relative scale-80 opacity-90">
+    <div className="w-60 relative  opacity-90">
       <Image
         src="/publishers/pckt.png"
         alt="A post written on pckt"
@@ -38,7 +38,7 @@ export const PcktPost = () => {
 
 export const LeafletPost = () => {
   return (
-    <div className="w-[268px] relative scale-80 opacity-90">
+    <div className="w-56 relative opacity-90">
       <Image
         src="/publishers/leaflet.png"
         alt="A publication written on Leaflet"

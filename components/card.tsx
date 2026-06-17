@@ -1,5 +1,4 @@
-import type { ComponentType, ReactNode } from "react";
-import type { LogoProps } from "./logo/types";
+import type { ReactNode } from "react";
 
 const radialTint =
   "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 203.42 233.02' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.4'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(8.2253 19.541 -27.613 25.864 48.478 142.34)'><stop stop-color='rgba(212,215,206,1)' offset='0.11846'/><stop stop-color='rgba(255,255,255,1)' offset='0.75857'/></radialGradient></defs></svg>\")";
@@ -76,47 +75,6 @@ export const LinkGlassCard = ({
         >
           <span className="whitespace-nowrap">{label}</span>
           <GoToPageIcon className="size-4 shrink-0" />
-        </div>
-      </div>
-    </GlassCard>
-  );
-};
-
-export const AppGlassCard = ({
-  description,
-  logo: Logo,
-  logoColor,
-  appName,
-  children,
-  className = "",
-  buttonClassName = "",
-}: {
-  description: ReactNode;
-  /** A logo component from `components/logo`, e.g. `Bluesky`. */
-  logo: ComponentType<LogoProps>;
-  /** Overrides the logo's default brand color. */
-  logoColor?: string;
-  appName: string;
-  children?: ReactNode;
-  className?: string;
-  buttonClassName?: string;
-}) => {
-  return (
-    <GlassCard
-      className={`!max-w-none !pt-3 pb-6! !pl-3 !pr-4 ${className} hover:z-50`}
-    >
-      <div className="flex flex-col items-center gap-3">
-        {children}
-        <div className="flex flex-col items-center gap-1">
-          <p className="text-center text-[#64758b]">{description}</p>
-          <div
-            className={`flex items-center justify-center gap-2 rounded-full px-4 py-1.5 ${buttonClassName}`}
-          >
-            <Logo color={logoColor} className="size-5" />
-            <span className="text-xl font-semibold leading-none">
-              {appName}
-            </span>
-          </div>
         </div>
       </div>
     </GlassCard>

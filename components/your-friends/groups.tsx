@@ -16,9 +16,9 @@ export type Bubble = {
   handle: string;
   avatar: string;
   /** Box position as percentages of the 796×593 stage. */
-  box: { left: string; top: string; width: string };
+  box: { left: string; bottom: string };
   /** Avatar position/size as percentages of the stage. */
-  avatarPos: { left: string; top: string; size: string };
+  avatarPos: { left: string; bottom: string };
   /** Where the bubble's tail sits, relative to the box. */
   tailClass: string;
 };
@@ -28,25 +28,25 @@ export const BUBBLES: Bubble[] = [
     key: "cozy",
     handle: "@cozylittle.house",
     avatar: "/friends/avatar-cozy.png",
-    box: { left: "65.33%", top: "30.35%", width: "30.9%" },
-    avatarPos: { left: "90.83%", top: "47.05%", size: "9.17%" },
-    tailClass: "-bottom-1.5 right-[12%]",
+    box: { left: "80%", bottom: "47%" },
+    avatarPos: { left: "89%", bottom: "39%" },
+    tailClass: "translate-y-[100%] -mt-px bottom-0 left-[50%]",
   },
   {
     key: "max",
     handle: "@maxbittker.bsky.social",
     avatar: "/friends/avatar-max.png",
-    box: { left: "54.9%", top: "70.49%", width: "30.9%" },
-    avatarPos: { left: "60.05%", top: "87.69%", size: "9.17%" },
-    tailClass: "-bottom-1.5 left-[18%]",
+    box: { left: "70%", bottom: "16%" },
+    avatarPos: { left: "64%", bottom: "8%" },
+    tailClass: "translate-y-[100%] -mt-px bottom-0 left-[45%]",
   },
   {
     key: "eva",
     handle: "@evakhoury.bsky.social",
     avatar: "/friends/avatar-eva.png",
-    box: { left: "5.15%", top: "64.92%", width: "30.9%" },
-    avatarPos: { left: "32.66%", top: "75.55%", size: "9.8%" },
-    tailClass: "-bottom-1.5 right-[12%]",
+    box: { left: "29%", bottom: "18%" },
+    avatarPos: { left: "35%", bottom: "12%" },
+    tailClass: "translate-y-[100%] -mt-px bottom-0 left-[40%]",
   },
 ];
 
@@ -96,8 +96,8 @@ export const GROUPS: Group[] = [
       eva: (
         <>
           omg this is great. it’s totally me and{" "}
-          <span className={mention}>@maxbittker.bsky.social</span> whenever we go
-          literally anywhere
+          <span className={mention}>@maxbittker.bsky.social</span> whenever we
+          go literally anywhere
         </>
       ),
     },

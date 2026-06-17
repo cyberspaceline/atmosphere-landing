@@ -19,11 +19,11 @@ export default function Home() {
       {/*<CloudBackground className="dappledBG" />*/}
       <MeshGradient className="cloudBG " />
 
-      <div className="relative hero w-full h-screen  flex items-center px-6  snap-start snap-always">
+      <div className="relative hero w-full max-w-[1400px] mx-auto h-screen  flex items-center px-6  snap-start snap-always">
         <AtmosphereHero />
       </div>
 
-      <div className="h-screen flex flex-col items-center justify-center text-center gap-12 snap-center snap-always">
+      <div className="w-full max-w-[1400px] mx-auto h-screen flex flex-col items-center justify-center text-center gap-12 snap-center snap-always">
         <div className="">
           <h2>
             The Atmosphere is an ecosystem of apps
@@ -38,10 +38,7 @@ export default function Home() {
         <AppCarousel />
       </div>
       <div className="w-screen h-screen snap-center snap-y snap-always snap-mandatory relative overflow-y-auto">
-        <FadeIn
-          noFadeOut
-          className="sticky inset-0 z-10 pointer-events-none h-screen -mb-[100vh]"
-        >
+        <div className="sticky top-0 z-10 pointer-events-none h-screen -mb-[100vh] w-full max-w-[1400px] mx-auto">
           <TownWrapper className="house">
             <Image
               src="/town/house.png"
@@ -50,7 +47,7 @@ export default function Home() {
               className="object-contain object-bottom select-none pointer-events-none"
             />
           </TownWrapper>
-        </FadeIn>
+        </div>
 
         <WhatIsAtmosphere />
         <WhyAtmosphere />
@@ -58,10 +55,9 @@ export default function Home() {
 
       <NoEnshittification />
 
-      <FadeIn className="snap-end snap-always flex flex-col justify-center text-center gap-6 pt-32">
-        <h3 className="text-center text-[1.5rem]">
-          Join a future built for the people
-        </h3>
+      <FadeIn className="w-full max-w-[1400px] mx-auto snap-end snap-always flex flex-col justify-center text-center gap-2 pt-32">
+        <h2 className="text-center ">Join the Atmosphere</h2>
+        <p className="large-text">A future built for the people</p>
         <AppGrid />
         <div className="h-24 w-full" />
       </FadeIn>

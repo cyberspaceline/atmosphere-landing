@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Bubble, Group } from "./groups";
+import { SpeeachBubbleArrow1, SpeeachBubbleArrow2, SpeeachBubbleArrow3 } from "../PopoverArrow";
 
 /**
  * One fixed bubble slot: the avatar and the white speech bubble stay put while
@@ -18,11 +19,10 @@ export function SpeechBubble({
     <>
       {/* avatar — fixed in place across every group */}
       <div
-        className="absolute aspect-square"
+        className="avatar absolute aspect-square z-20 -translate-x-1/2 w-16"
         style={{
           left: bubble.avatarPos.left,
-          top: bubble.avatarPos.top,
-          width: bubble.avatarPos.size,
+          bottom: bubble.avatarPos.bottom,
         }}
       >
         <Image
@@ -36,26 +36,33 @@ export function SpeechBubble({
 
       {/* white speech bubble — fixed; its copy is what changes */}
       <div
-        className="absolute rounded-2xl bg-white px-3 py-2.5 shadow-[0_2px_10px_rgba(0,0,0,0.14)]"
+        className="absolute -translate-x-1/2 rounded-lg  bg-[rgba(255,255,255,.9)] p-3 pt-2 border border-[#CFDDE0] w-[264px]"
         style={{
           left: bubble.box.left,
-          top: bubble.box.top,
-          width: bubble.box.width,
+          bottom: bubble.box.bottom,
         }}
       >
-        <span
+        <div
           aria-hidden
-          className={`absolute size-3 rotate-45 bg-white ${bubble.tailClass}`}
-        />
-        <p className="text-[14px] font-medium text-black">{bubble.handle}</p>
-        <div className="relative mt-1 text-[14px] font-light text-black">
+          className={`absolute ${bubble.tailClass}`}
+        >
+          {bubble.key === "eva" ? (
+            <SpeeachBubbleArrow1 />
+          ) : bubble.key === "max" ? (
+            <SpeeachBubbleArrow2 />
+          ) : (
+            <SpeeachBubbleArrow3 />
+          )}
+        </div>
+        <p className="text-[14px]  font-bold">{bubble.handle}</p>
+        <div className="relative font-light text-black">
           {groups.map((g, i) => {
             const visible = i === active;
             return (
               <p
                 key={g.key}
                 aria-hidden={!visible}
-                className={`transition-opacity duration-700 ${
+                className={`text-[14px] leading-4 transition-opacity duration-700 ${
                   visible ? "" : "pointer-events-none absolute inset-0"
                 }`}
                 style={{ opacity: visible ? 1 : 0 }}
