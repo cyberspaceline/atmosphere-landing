@@ -1,13 +1,10 @@
 import Image from "next/image";
 import { LinkGlassCard } from "../card";
+import { PopoverArrow } from "../PopoverArrow";
 
 export const BlueskyPost = () => {
   return (
-    <LinkGlassCard
-      className="w-[324px]"
-      label="View on Bluesky"
-      labelColor="#016bfe"
-    >
+    <div className="w-[324px] relative">
       <Image
         src="/microblogging/bluesky.png"
         alt="A post on Bluesky"
@@ -15,17 +12,16 @@ export const BlueskyPost = () => {
         height={120}
         className="w-full h-auto rounded border border-[#dce2ea]"
       />
-    </LinkGlassCard>
+      <div className="absolute right-1/2 translate-x-1/2 -mt-px">
+        <PopoverArrow fill="white" stroke="#E9ECF3" />
+      </div>
+    </div>
   );
 };
 
 export const BlackskyPost = () => {
   return (
-    <LinkGlassCard
-      className="w-[326px]"
-      label="View on Blacksky"
-      labelColor="#000000"
-    >
+    <div className="w-[326px] relative">
       <Image
         src="/microblogging/blacksky.png"
         alt="A post on Blacksky"
@@ -33,6 +29,9 @@ export const BlackskyPost = () => {
         height={122}
         className="w-full h-auto rounded border border-[#e0e1e1]"
       />
-    </LinkGlassCard>
+      <div className="absolute right-1/2 translate-x-1/2 -mt-px">
+        <PopoverArrow fill="white" stroke="#E9ECF3" />
+      </div>
+    </div>
   );
 };

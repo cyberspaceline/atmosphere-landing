@@ -1,84 +1,83 @@
 import { apps } from "@/components/atmosphere-apps/apps";
 import { GlassCard } from "@/components/card";
 
-const TRACK_WIDTH = 2100;
-const TRACK_HEIGHT = 600;
-const SCROLL_SECONDS = 16;
+const CLOUD_WIDTH = 1040;
+const CLOUD_HEIGHT = 480;
 
-const POSITIONS: Array<{ x: number; y: number }> = [
-  { x: 40, y: 70 },
-  { x: 230, y: 230 },
-  { x: 70, y: 380 },
-  { x: 470, y: 10 },
-  { x: 380, y: 220 },
-  { x: 520, y: 340 },
-  { x: 700, y: 100 },
-  { x: 660, y: 290 },
-  { x: 820, y: 380 },
-  { x: 910, y: 50 },
-  { x: 1010, y: 240 },
-  { x: 1150, y: 380 },
-  { x: 1340, y: 120 },
-  { x: 1530, y: 290 },
-  { x: 1820, y: 380 },
+// Scattered, puffy-cloud arrangement for each app card. `float` tunes the
+// gentle bob so neighbouring cards drift out of sync with one another.
+const POSITIONS: Array<{
+  x: number;
+  y: number;
+  /** Vertical drift in px (negative floats up). */
+  distance: number;
+  /** Seconds for one bob cycle. */
+  duration: number;
+  /** Negative offset so cards don't all start mid-air together. */
+  delay: number;
+}> = [
+  { x: 60, y: 150, distance: -12, duration: 5.5, delay: -0.0 },
+  { x: 210, y: 40, distance: -16, duration: 6.5, delay: -1.4 },
+  { x: 180, y: 300, distance: -10, duration: 4.8, delay: -2.1 },
+  { x: 360, y: 170, distance: -14, duration: 6.0, delay: -0.7 },
+  { x: 380, y: 350, distance: -11, duration: 5.2, delay: -3.0 },
+  { x: 430, y: 20, distance: -13, duration: 6.8, delay: -2.6 },
+  { x: 560, y: 250, distance: -16, duration: 5.0, delay: -1.1 },
+  { x: 600, y: 100, distance: -10, duration: 6.2, delay: -3.4 },
+  { x: 580, y: 380, distance: -14, duration: 5.6, delay: -0.4 },
+  { x: 740, y: 40, distance: -12, duration: 4.9, delay: -2.9 },
+  { x: 760, y: 220, distance: -15, duration: 6.6, delay: -1.7 },
+  { x: 770, y: 380, distance: -11, duration: 5.3, delay: -3.6 },
+  { x: 910, y: 130, distance: -13, duration: 6.1, delay: -0.9 },
+  { x: 930, y: 310, distance: -16, duration: 5.4, delay: -2.3 },
+  { x: 80, y: 330, distance: -12, duration: 6.4, delay: -1.9 },
 ];
 
-const Track = ({
-  ariaHidden = false,
-  left,
-}: {
-  ariaHidden?: boolean;
-  left: number;
-}) => (
+export const AppCloud = () => (
   <div
-    style={{
-      position: "absolute",
-      left,
-      top: 0,
-      width: TRACK_WIDTH,
-      height: TRACK_HEIGHT,
-    }}
-    aria-hidden={ariaHidden || undefined}
-  >
-    {POSITIONS.map((pos, i) => {
-      const app = apps[i];
-      const Logo = app.logo;
-      return (
-        <div
-          key={app.name}
-          className="absolute"
-          style={{ left: pos.x, top: pos.y }}
-        >
-          <GlassCard>
-            <div className="flex flex-col justify-center text-center">
-              <div className="mx-auto mb-3">
-                <Logo size={48} />
-              </div>
-              <h3 className="pb-1">{app.name}</h3>
-              <p>{app.description}</p>
-            </div>
-          </GlassCard>
-        </div>
-      );
-    })}
-  </div>
-);
-
-export const AppCarousel = () => (
-  <div
-    className="overflow-hidden w-screen -mx-12"
-    style={{ height: TRACK_HEIGHT }}
+    className="relative w-full overflow-visible"
+    style={{ height: CLOUD_HEIGHT }}
   >
     <div
-      style={{
-        position: "relative",
-        width: TRACK_WIDTH * 2,
-        height: TRACK_HEIGHT,
-        animation: `app-carousel-scroll ${SCROLL_SECONDS}s linear infinite`,
-      }}
+      className="relative mx-auto"
+      style={{ width: CLOUD_WIDTH, height: CLOUD_HEIGHT }}
     >
-      <Track left={0} />
-      <Track ariaHidden left={TRACK_WIDTH} />
+      {POSITIONS.map((pos, i) => {
+        const app = apps[i];
+        const Logo = app.logo;
+        return (
+          <div
+            key={app.name}
+            className="group absolute hover:z-50"
+            style={{ left: pos.x, top: pos.y }}
+          >
+            <div
+              className="app-float"
+              style={{
+                ["--float-distance" as string]: `${pos.distance}px`,
+                animationDuration: `${pos.duration}s`,
+                animationDelay: `${pos.delay}s`,
+              }}
+            >
+              <div className="origin-center transition-transform duration-300 ease-out group-hover:scale-[1.18]">
+                <GlassCard>
+                  <div className="flex flex-col justify-center text-center">
+                    <div className="mx-auto mb-1">
+                      <Logo size={32} />
+                    </div>
+                    <h4 className=" font-bold">{app.name}</h4>
+                    <p className="text-[.8rem] leading-snug">
+                      {app.description}
+                    </p>
+                  </div>
+                </GlassCard>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   </div>
 );
+
+export const AppCarousel = AppCloud;

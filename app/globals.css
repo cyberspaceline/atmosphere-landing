@@ -30,7 +30,7 @@ body {
 }
 
 #home-page.greenPage {
-    background: #d9f171;
+    background: transparent;
 }
 
 @layer base {
@@ -69,7 +69,7 @@ body {
     }
 
     .greenPage {
-        font-family: var(--font-bricolage-grotesque), system-ui, sans-serif;
+        font-family: var(--font-ibm-plex-sans), system-ui, sans-serif;
 
         h1,
         h2,
@@ -105,13 +105,21 @@ body {
     }
 }
 
-@keyframes app-carousel-scroll {
-    from {
-        transform: translateX(0);
+@keyframes app-float {
+    0%,
+    100% {
+        transform: translateY(0);
     }
-    to {
-        transform: translateX(-1700px);
+    50% {
+        transform: translateY(var(--float-distance, -12px));
     }
+}
+
+.app-float {
+    animation-name: app-float;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    will-change: transform;
 }
 
 .absolute-card {
@@ -130,5 +138,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .fade-in-section {
         opacity: 1;
+    }
+
+    .app-float {
+        animation: none;
     }
 }

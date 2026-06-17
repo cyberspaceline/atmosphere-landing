@@ -14,9 +14,10 @@ export const BlueskyExample = () => {
     >
       <Image
         src="/friends/bluesky-post.png"
+        loading="eager"
         alt="A post on Bluesky"
-        width={356}
-        height={385}
+        width={1220}
+        height={1318}
         className="w-full h-auto"
       />
     </AppGlassCard>
@@ -34,6 +35,7 @@ export const BlackskyExample = () => {
     >
       <Image
         src="/friends/blacksky-post.png"
+        loading="eager"
         alt="A post on Blacksky"
         width={356}
         height={385}
@@ -55,6 +57,7 @@ export const AnisotaExample = () => {
     >
       <Image
         src="/friends/anisota-post.png"
+        loading="eager"
         alt="A post on Anisota"
         width={265}
         height={351}
@@ -75,6 +78,7 @@ export const LeafletExample = () => {
     >
       <Image
         src="/friends/leaflet-post.png"
+        loading="eager"
         alt="A post on Leaflet"
         width={379}
         height={171}

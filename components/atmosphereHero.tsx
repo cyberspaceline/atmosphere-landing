@@ -209,8 +209,9 @@ export function AtmosphereHero({ className = "" }: { className?: string }) {
 
   return (
     <div
-      className={`relative w-full ${className}`}
-      style={{ aspectRatio: "3567 / 1823" }}
+      id="hero"
+      className={`relative w-full max-h-[80vh] ${className}`}
+      style={{ aspectRatio: "3567 / 1823", containerType: "size" }}
       aria-label="Atmosphere"
       role="img"
       onMouseMove={handleMove}
@@ -218,18 +219,18 @@ export function AtmosphereHero({ className = "" }: { className?: string }) {
         targetRef.current = null;
       }}
     >
-      <div className="absolute -top-[1%] left-[9%] w-[42%]">
+      <div className="absolute -top-[2%] left-[8%] h-[27cqh]">
         <Image
           alt=""
           src="/atmosphere/the.png"
           aria-hidden
-          width={400}
-          height={300}
-          className=""
+          width={1453}
+          height={652}
+          className="w-auto h-full"
         />
       </div>
-      <h2 className="absolute bottom-[5%] right-[3%] text-[4rem] w-fit">
-        The good vibes internet
+      <h2 className="absolute bottom-[6%] right-[4%] text-[8cqh] w-fit">
+        as free as air and water
       </h2>
 
       {/* Shadows — full-canvas layers behind every letter */}

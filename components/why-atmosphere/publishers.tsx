@@ -1,13 +1,10 @@
 import Image from "next/image";
 import { LinkGlassCard } from "../card";
+import { PopoverArrow } from "../PopoverArrow";
 
 export const OffprintPost = () => {
   return (
-    <LinkGlassCard
-      className="w-[328px]"
-      label="Written on Offprint"
-      labelColor="#000000"
-    >
+    <div className="relative w-[328px] scale-80 opacity-90">
       <Image
         src="/publishers/offprint.png"
         alt="An article written on Offprint"
@@ -15,17 +12,16 @@ export const OffprintPost = () => {
         height={222}
         className="w-full h-auto"
       />
-    </LinkGlassCard>
+      <div className="absolute right-1/2 translate-x-1/2 -mt-px">
+        <PopoverArrow fill="white" stroke="#E9ECF3" />
+      </div>
+    </div>
   );
 };
 
 export const PcktPost = () => {
   return (
-    <LinkGlassCard
-      className="w-[328px]"
-      label="Written on pckt"
-      labelColor="#ff5d5c"
-    >
+    <div className="w-[328px] relative scale-80 opacity-90">
       <Image
         src="/publishers/pckt.png"
         alt="A post written on pckt"
@@ -33,17 +29,16 @@ export const PcktPost = () => {
         height={234}
         className="w-full h-auto"
       />
-    </LinkGlassCard>
+      <div className="absolute right-1/2 translate-x-1/2 -mt-px">
+        <PopoverArrow fill="white" stroke="#E9ECF3" />
+      </div>
+    </div>
   );
 };
 
 export const LeafletPost = () => {
   return (
-    <LinkGlassCard
-      className="w-[268px]"
-      label="Written on Leaflet"
-      labelColor="#749100"
-    >
+    <div className="w-[268px] relative scale-80 opacity-90">
       <Image
         src="/publishers/leaflet.png"
         alt="A publication written on Leaflet"
@@ -51,6 +46,9 @@ export const LeafletPost = () => {
         height={263}
         className="w-full h-auto"
       />
-    </LinkGlassCard>
+      <div className="absolute right-1/2 translate-x-1/2 -mt-px">
+        <PopoverArrow fill="white" stroke="#E9ECF3" />
+      </div>
+    </div>
   );
 };

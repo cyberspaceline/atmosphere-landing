@@ -8,8 +8,10 @@ export const GrainExample = () => {
       <div className="absolute -top-[65px] left-[270px] h-[228px] w-[171px] overflow-hidden rounded-xl border border-[#206609]">
         <Image
           src="/friends/grain-ss.png"
+          loading="eager"
           alt="A photo shared on Grain"
           fill
+          sizes="171px"
           className="object-cover pointer-events-none select-none"
         />
       </div>
@@ -23,6 +25,7 @@ export const GrainExample = () => {
       >
         <Image
           src="/friends/grain-comments.png"
+          loading="eager"
           alt="Comments on a Grain photo"
           width={330}
           height={324}
@@ -39,8 +42,10 @@ export const MarginExample = () => {
       <div className="absolute -top-[52px] -left-[29px] h-[130px] w-[233px] overflow-hidden rounded-xl border border-[#206609]">
         <Image
           src="/friends/margin-ss.png"
+          loading="eager"
           alt="A webpage annotated with Margin"
           fill
+          sizes="233px"
           className="object-cover pointer-events-none select-none"
         />
       </div>
@@ -54,6 +59,7 @@ export const MarginExample = () => {
       >
         <Image
           src="/friends/margin-annotation.png"
+          loading="eager"
           alt="An annotation thread in Margin"
           width={688}
           height={612}
@@ -70,8 +76,10 @@ export const SillExample = () => {
       <div className="absolute -top-[79px] -left-[64px] h-[149px] w-[265px] overflow-hidden rounded-xl border border-[#206609]">
         <Image
           src="/friends/sill-ss.png"
+          loading="eager"
           alt="A community feed on Sill"
           fill
+          sizes="265px"
           className="object-cover pointer-events-none select-none"
         />
       </div>
@@ -84,6 +92,7 @@ export const SillExample = () => {
       >
         <Image
           src="/friends/sill-share.png"
+          loading="eager"
           alt="Friends sharing a read on Sill"
           width={1028}
           height={160}
