@@ -1,6 +1,6 @@
 import type { ComponentType, ReactNode } from "react";
-import { Grain, Margin, Sill } from "@/components/logo";
-import type { LogoProps } from "@/components/logo/types";
+import { Grain, Margin, Sill } from "@/components/logos";
+import type { LogoProps } from "@/components/logos/types";
 
 /**
  * The three commenters are the same people in every group, and each keeps a
@@ -27,7 +27,7 @@ export const BUBBLES: Bubble[] = [
   {
     key: "cozy",
     handle: "@cozylittle.house",
-    avatar: "/friends/avatar-cozy.png",
+    avatar: "/your-community/avatar-cozy.png",
     box: { left: "80%", bottom: "47%" },
     avatarPos: { left: "89%", bottom: "39%" },
     tailClass: "translate-y-[100%] -mt-px bottom-0 left-[50%]",
@@ -35,7 +35,7 @@ export const BUBBLES: Bubble[] = [
   {
     key: "max",
     handle: "@maxbittker.bsky.social",
-    avatar: "/friends/avatar-max.png",
+    avatar: "/your-community/avatar-max.png",
     box: { left: "70%", bottom: "16%" },
     avatarPos: { left: "64%", bottom: "8%" },
     tailClass: "translate-y-[100%] -mt-px bottom-0 left-[45%]",
@@ -43,7 +43,7 @@ export const BUBBLES: Bubble[] = [
   {
     key: "eva",
     handle: "@evakhoury.bsky.social",
-    avatar: "/friends/avatar-eva.png",
+    avatar: "/your-community/avatar-eva.png",
     box: { left: "29%", bottom: "18%" },
     avatarPos: { left: "35%", bottom: "12%" },
     tailClass: "translate-y-[100%] -mt-px bottom-0 left-[40%]",
@@ -79,7 +79,7 @@ export const GROUPS: Group[] = [
       pillText: "#ffffff",
     },
     example: {
-      src: "/friends/grain-example.png",
+      src: "/your-community/grain-example.png",
       alt: "A mossy forest photo shared on Grain",
       border: "#000000",
     },
@@ -113,7 +113,7 @@ export const GROUPS: Group[] = [
       pillText: "#fffab0",
     },
     example: {
-      src: "/friends/sill-example.png",
+      src: "/your-community/sill-example.png",
       alt: "“Seeking Truths Through Fiction” shared on Sill",
       border: "#a96b00",
     },
@@ -139,7 +139,7 @@ export const GROUPS: Group[] = [
       pillText: "#ffffff",
     },
     example: {
-      src: "/friends/margin-example.png",
+      src: "/your-community/margin-example.png",
       alt: "A blog post annotated together on Margin",
       border: "#3464ff",
     },

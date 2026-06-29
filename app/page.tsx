@@ -1,13 +1,12 @@
-import { AppCarousel } from "@/components/atmosphere-apps/appCarousel";
+import { AppCloud } from "@/components/atmosphere-apps/appCloud";
 import { AtmosphereHero } from "@/components/atmosphereHero";
-import CloudBackground from "@/components/CloudBackground";
 import { AppGrid } from "@/components/atmosphere-apps/appGrid";
 import { FadeIn } from "@/components/fadeIn";
 import { NoEnshittification } from "@/components/noEnshittification";
 import { TownWrapper } from "@/components/townWrapper";
 import { WhatIsAtmosphere } from "@/components/what-is-atmosphere/whatIsAtmosphere";
 import Image from "next/image";
-import { WhyAtmosphere } from "@/components/why-atmosphere/whyAtmosphere";
+import { WhyAtmosphere } from "@/components/conclusion/Conclusion";
 import MeshGradient from "@/components/MeshGradient";
 
 export default function Home() {
@@ -35,7 +34,7 @@ export default function Home() {
             via Atmosphere apps!
           </p>
         </div>
-        <AppCarousel />
+        <AppCloud />
       </div>
       <div className="w-screen h-screen snap-center snap-y snap-always snap-mandatory relative overflow-y-auto">
         <div className="sticky top-0 z-10 pointer-events-none h-screen -mb-[100vh] w-full max-w-[1400px] mx-auto">

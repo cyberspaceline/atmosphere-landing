@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BUBBLES, GROUPS } from "./groups";
-import { LinkButton } from "./linkButton";
+import { LinkButton } from "../card";
 import { SpeechBubble } from "./speechBubble";
 
 /** How long each group stays fully visible before the next cross-fades in (ms). */
@@ -45,7 +45,6 @@ export function FriendGroups() {
 
   return (
     <>
-      {/* example column: link pill + cross-fading example image */}
       <div ref={ref} className="absolute left-0 right-60 bottom-44">
         <div className="relative">
           {GROUPS.map((g, i) => {

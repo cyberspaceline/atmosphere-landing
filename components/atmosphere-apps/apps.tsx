@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import type { LogoProps } from "@/components/logo/types";
+import type { LogoProps } from "@/components/logos/types";
 import {
   Anisota,
   Bluesky,
@@ -16,7 +16,7 @@ import {
   Streamplace,
   Surf,
   Tangled,
-} from "@/components/logo";
+} from "@/components/logos";
 
 export type App = {
   name: string;

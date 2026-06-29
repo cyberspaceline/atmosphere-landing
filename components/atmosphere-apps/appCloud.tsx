@@ -1,13 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { apps } from "@/components/atmosphere-apps/apps";
 import { GlassCard } from "@/components/card";
 import { FLOAT_CLASS, floatStyle } from "@/lib/float";
 
-const CLOUD_WIDTH = 1040;
 const CLOUD_HEIGHT = 480;
+/** Cloud spans the page minus a 48px gutter each side, capped at 1400px. */
+const MAX_CLOUD_WIDTH = 1400;
+const PAGE_MARGIN = 48;
 
-// Scattered, puffy-cloud arrangement for each app card. `float` tunes the
-// gentle bob so neighbouring cards drift out of sync with one another.
-const POSITIONS: Array<{
+// Approximate card footprint, used to normalise spacing during layout.
+const CARD_W = 192;
+const CARD_H = 140;
+/** How many random spots each card tries before settling on the best one. */
+const CANDIDATES_PER_CARD = 25;
+
+type Placement = {
   x: number;
   y: number;
   /** Vertical drift in px (negative floats up). */
@@ -16,69 +25,114 @@ const POSITIONS: Array<{
   duration: number;
   /** Negative offset so cards don't all start mid-air together. */
   delay: number;
-}> = [
-  { x: 60, y: 150, distance: -12, duration: 5.5, delay: -0.0 },
-  { x: 210, y: 40, distance: -16, duration: 6.5, delay: -1.4 },
-  { x: 180, y: 300, distance: -10, duration: 4.8, delay: -2.1 },
-  { x: 360, y: 170, distance: -14, duration: 6.0, delay: -0.7 },
-  { x: 380, y: 350, distance: -11, duration: 5.2, delay: -3.0 },
-  { x: 430, y: 20, distance: -13, duration: 6.8, delay: -2.6 },
-  { x: 560, y: 250, distance: -16, duration: 5.0, delay: -1.1 },
-  { x: 600, y: 100, distance: -10, duration: 6.2, delay: -3.4 },
-  { x: 580, y: 380, distance: -14, duration: 5.6, delay: -0.4 },
-  { x: 740, y: 40, distance: -12, duration: 4.9, delay: -2.9 },
-  { x: 760, y: 220, distance: -15, duration: 6.6, delay: -1.7 },
-  { x: 770, y: 380, distance: -11, duration: 5.3, delay: -3.6 },
-  { x: 910, y: 130, distance: -13, duration: 6.1, delay: -0.9 },
-  { x: 930, y: 310, distance: -16, duration: 5.4, delay: -2.3 },
-  { x: 80, y: 330, distance: -12, duration: 6.4, delay: -1.9 },
-];
+};
 
-export const AppCloud = () => (
-  <div
-    className="relative w-full overflow-visible"
-    style={{ height: CLOUD_HEIGHT }}
-  >
+// Distance between two spots, measured in card-widths/-heights so the
+// wider-than-tall cards end up evenly spaced in both axes rather than
+// clumping horizontally.
+function spacing(a: { x: number; y: number }, b: { x: number; y: number }) {
+  const dx = (a.x - b.x) / CARD_W;
+  const dy = (a.y - b.y) / CARD_H;
+  return Math.hypot(dx, dy);
+}
+
+// Mitchell's best-candidate sampling: for each card, throw several random
+// darts and keep the one sitting farthest from every card placed so far.
+// This yields blue-noise — random, but evenly spaced and organic rather than
+// gridded. Each card also gets its own float so neighbours drift out of sync.
+function buildPlacements(width: number): Placement[] {
+  const maxX = Math.max(0, width - CARD_W);
+  const maxY = Math.max(0, CLOUD_HEIGHT - CARD_H);
+  const placed: Placement[] = [];
+
+  for (let i = 0; i < apps.length; i++) {
+    let best = { x: Math.random() * maxX, y: Math.random() * maxY };
+    let bestNearest = -Infinity;
+
+    for (let c = 0; c < CANDIDATES_PER_CARD; c++) {
+      const candidate = { x: Math.random() * maxX, y: Math.random() * maxY };
+      // Distance to the closest already-placed card (Infinity for the first).
+      let nearest = Infinity;
+      for (const p of placed) nearest = Math.min(nearest, spacing(candidate, p));
+      if (nearest > bestNearest) {
+        bestNearest = nearest;
+        best = candidate;
+      }
+    }
+
+    placed.push({
+      ...best,
+      distance: -(10 + Math.random() * 6),
+      duration: 4.8 + Math.random() * 2,
+      delay: -(Math.random() * 3.6),
+    });
+  }
+
+  return placed;
+}
+
+export const AppCloud = () => {
+  const [width, setWidth] = useState(0);
+  const [placements, setPlacements] = useState<Placement[]>([]);
+
+  // Resolve the cloud width from the viewport (client-only to avoid a
+  // hydration mismatch from random/measured values).
+  useEffect(() => {
+    const measure = () =>
+      setWidth(Math.min(MAX_CLOUD_WIDTH, window.innerWidth - PAGE_MARGIN * 2));
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  useEffect(() => {
+    if (width > 0) setPlacements(buildPlacements(width));
+  }, [width]);
+
+  return (
     <div
-      className="relative mx-auto"
-      style={{ width: CLOUD_WIDTH, height: CLOUD_HEIGHT }}
+      className="relative w-full overflow-visible"
+      style={{ height: CLOUD_HEIGHT }}
     >
-      {POSITIONS.map((pos, i) => {
-        const app = apps[i];
-        const Logo = app.logo;
-        return (
-          <div
-            key={app.name}
-            className="group absolute hover:z-50"
-            style={{ left: pos.x, top: pos.y }}
-          >
+      <div
+        className="relative mx-auto"
+        style={{ width: width || undefined, maxWidth: "100%", height: CLOUD_HEIGHT }}
+      >
+        {placements.map((pos, i) => {
+          const app = apps[i];
+          const Logo = app.logo;
+          return (
             <div
-              className={FLOAT_CLASS}
-              style={floatStyle({
-                distance: `${pos.distance}px`,
-                duration: `${pos.duration}s`,
-                delay: `${pos.delay}s`,
-              })}
+              key={app.name}
+              className="group absolute hover:z-50"
+              style={{ left: pos.x, top: pos.y }}
             >
-              <div className="origin-center transition-transform duration-300 ease-out group-hover:scale-[1.18]">
-                <GlassCard>
-                  <div className="flex flex-col justify-center text-center">
-                    <div className="mx-auto mb-1">
-                      <Logo size={32} />
+              <div
+                className={FLOAT_CLASS}
+                style={floatStyle({
+                  distance: `${pos.distance}px`,
+                  duration: `${pos.duration}s`,
+                  delay: `${pos.delay}s`,
+                })}
+              >
+                <div className="origin-center transition-transform duration-300 ease-out group-hover:scale-[1.18]">
+                  <GlassCard>
+                    <div className="flex flex-col justify-center text-center">
+                      <div className="mx-auto mb-1">
+                        <Logo size={32} />
+                      </div>
+                      <h4 className=" font-bold">{app.name}</h4>
+                      <p className="text-[.8rem] leading-snug">
+                        {app.description}
+                      </p>
                     </div>
-                    <h4 className=" font-bold">{app.name}</h4>
-                    <p className="text-[.8rem] leading-snug">
-                      {app.description}
-                    </p>
-                  </div>
-                </GlassCard>
+                  </GlassCard>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
-  </div>
-);
-
-export const AppCarousel = AppCloud;
+  );
+};

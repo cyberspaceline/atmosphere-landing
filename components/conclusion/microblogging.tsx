@@ -5,7 +5,7 @@ export const BlueskyPost = () => {
   return (
     <div className="w-72 relative">
       <Image
-        src="/microblogging/bluesky.png"
+        src="/conclusion/microblogging/bluesky.png"
         alt="A post on Bluesky"
         width={296}
         height={120}
@@ -22,7 +22,7 @@ export const BlackskyPost = () => {
   return (
     <div className="w-72 relative">
       <Image
-        src="/microblogging/blacksky.png"
+        src="/conclusion/microblogging/blacksky.png"
         alt="A post on Blacksky"
         width={298}
         height={122}

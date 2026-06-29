@@ -1,4 +1,8 @@
-import type { ReactNode } from "react";
+import { useState, type ComponentType, type ReactNode } from "react";
+import Image from "next/image";
+import type { Group } from "./community/groups";
+import type { LogoProps } from "./logos/types";
+import { FLOAT_CLASS, floatStyle } from "@/lib/float";
 
 const radialTint =
   "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 203.42 233.02' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.4'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(8.2253 19.541 -27.613 25.864 48.478 142.34)'><stop stop-color='rgba(212,215,206,1)' offset='0.11846'/><stop stop-color='rgba(255,255,255,1)' offset='0.75857'/></radialGradient></defs></svg>\")";
@@ -28,7 +32,7 @@ export const GlassCard = ({
   );
 };
 
-const GoToPageIcon = ({ className }: { className?: string }) => (
+export const GoToPageIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
     viewBox="0 0 16 16"
@@ -47,36 +51,111 @@ const GoToPageIcon = ({ className }: { className?: string }) => (
 );
 
 /**
- * A glass card with an image and a right-aligned "View/Written on X →" link.
- * Used for content/publisher examples (see microblogging.tsx, publishers.tsx).
+ * The "<description> on <App>" label that sits above each example. Hovering the
+ * pill pauses the cycling sequence, so the avatar/bubble layout holds still.
  */
-export const LinkGlassCard = ({
-  children,
-  label,
-  labelColor,
-  className = "",
+export function LinkButton({
+  link,
+  interactive,
+  onHoverChange,
 }: {
-  children?: ReactNode;
-  /** The call-to-action text, e.g. "View on Bluesky". */
-  label: string;
-  /** Color for the label and arrow. Defaults to the inherited text color. */
-  labelColor?: string;
+  link: Group["link"];
+  /** Only the active group's pill should be hoverable. */
+  interactive: boolean;
+  onHoverChange: (hovered: boolean) => void;
+}) {
+  const { text, appName, logo: Logo, logoColor, pillBg, pillText } = link;
+  const [hovered, setHovered] = useState(false);
+  return (
+    <span
+      className={`flex items-center justify-center gap-2 rounded-lg px-2 py-1  outline-2 outline-offset-1   ${
+        interactive
+          ? "pointer-events-auto cursor-pointer"
+          : "pointer-events-none"
+      }`}
+      style={{
+        backgroundColor: pillBg,
+        color: pillText,
+        outlineColor: hovered ? pillBg : "transparent",
+      }}
+      onMouseEnter={() => {
+        if (!interactive) return;
+        setHovered(true);
+        onHoverChange(true);
+      }}
+      onMouseLeave={() => {
+        if (!interactive) return;
+        setHovered(false);
+        onHoverChange(false);
+      }}
+    >
+      <p className={`whitespace-nowrap text-[16px] text-inherit`}>{text}</p>
+      <div className="flex gap-1 items-center">
+        <Logo color={logoColor} className="size-4" />
+        <span className="text-[16px] font-semibold leading-none">
+          {appName}
+        </span>
+      </div>
+      <GoToPageIcon className="w-4 h-4" />
+    </span>
+  );
+}
+
+export const Card = ({
+  appName,
+  description,
+  logo: Logo,
+  buttonBg: pillBg,
+  buttonText: pillText,
+  src,
+  className = "",
+  bottom,
+  left,
+  floatDuration = "5s",
+  floatDelay = "0s",
+}: {
+  appName: string;
+  description: string;
+  logo: ComponentType<LogoProps>;
+  buttonBg: string;
+  buttonText: string;
+  src: string;
   className?: string;
+  bottom: string;
+  left: string;
+  floatDuration?: string;
+  floatDelay?: string;
 }) => {
   return (
-    <GlassCard
-      className={`!max-w-none !pt-3 !pb-4 !pl-3 !pr-4 ${className} hover:z-50`}
+    <div
+      className={`${className} ${FLOAT_CLASS} absolute -translate-x-1/2 z-30 transition duration-300 group-hover/content-cards:blur-sm hover:blur-none! hover:z-50 hover:-translate-y-2 flex flex-col items-end gap-2`}
+      style={{
+        bottom,
+        left,
+        ...floatStyle({ duration: floatDuration, delay: floatDelay }),
+      }}
     >
-      <div className="flex flex-col items-end gap-1">
-        {children}
-        <div
-          className="flex items-center gap-1 text-base font-semibold"
-          style={labelColor ? { color: labelColor } : undefined}
-        >
-          <span className="whitespace-nowrap">{label}</span>
-          <GoToPageIcon className="size-4 shrink-0" />
-        </div>
-      </div>
-    </GlassCard>
+      <Image
+        src={src}
+        loading="eager"
+        alt="A post on Leaflet"
+        width={400}
+        height={600}
+        className="w-full h-auto"
+      />
+
+      <LinkButton
+        link={{
+          text: description,
+          appName,
+          logo: Logo,
+          logoColor: pillText,
+          pillBg,
+          pillText,
+        }}
+        interactive={true}
+        onHoverChange={() => {}}
+      />
+    </div>
   );
 };

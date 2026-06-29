@@ -47,53 +47,53 @@ type Glyph = {
 const GLYPHS: Glyph[] = [
   {
     id: "S",
-    letterSrc: "/atmosphere/letter-S.png",
-    shadowSrc: "/atmosphere/shadow-S.png",
+    letterSrc: "/hero/letter-S.png",
+    shadowSrc: "/hero/shadow-S.png",
   },
   {
     id: "O",
-    letterSrc: "/atmosphere/letter-O.png",
-    shadowSrc: "/atmosphere/shadow-O.png",
+    letterSrc: "/hero/letter-O.png",
+    shadowSrc: "/hero/shadow-O.png",
   },
   {
     id: "M",
-    letterSrc: "/atmosphere/letter-M.png",
-    shadowSrc: "/atmosphere/shadow-M.png",
+    letterSrc: "/hero/letter-M.png",
+    shadowSrc: "/hero/shadow-M.png",
   },
   {
     id: "T",
-    letterSrc: "/atmosphere/letter-T.png",
-    shadowSrc: "/atmosphere/shadow-T.png",
+    letterSrc: "/hero/letter-T.png",
+    shadowSrc: "/hero/shadow-T.png",
   },
   {
     id: "A",
-    letterSrc: "/atmosphere/letter-A.png",
-    shadowSrc: "/atmosphere/shadow-A.png",
+    letterSrc: "/hero/letter-A.png",
+    shadowSrc: "/hero/shadow-A.png",
   },
   {
     id: "E2",
-    letterSrc: "/atmosphere/letter-E2.png",
-    shadowSrc: "/atmosphere/shadow-E2.png",
+    letterSrc: "/hero/letter-E2.png",
+    shadowSrc: "/hero/shadow-E2.png",
   },
   {
     id: "R",
-    letterSrc: "/atmosphere/letter-R.png",
-    shadowSrc: "/atmosphere/shadow-R.png",
+    letterSrc: "/hero/letter-R.png",
+    shadowSrc: "/hero/shadow-R.png",
   },
   {
     id: "E1",
-    letterSrc: "/atmosphere/letter-E1.png",
-    shadowSrc: "/atmosphere/shadow-E1.png",
+    letterSrc: "/hero/letter-E1.png",
+    shadowSrc: "/hero/shadow-E1.png",
   },
   {
     id: "H",
-    letterSrc: "/atmosphere/letter-H.png",
-    shadowSrc: "/atmosphere/shadow-H.png",
+    letterSrc: "/hero/letter-H.png",
+    shadowSrc: "/hero/shadow-H.png",
   },
   {
     id: "P",
-    letterSrc: "/atmosphere/letter-P.png",
-    shadowSrc: "/atmosphere/shadow-P.png",
+    letterSrc: "/hero/letter-P.png",
+    shadowSrc: "/hero/shadow-P.png",
   },
 ];
 
@@ -222,7 +222,7 @@ export function AtmosphereHero({ className = "" }: { className?: string }) {
       <div className="absolute -top-[2%] left-[8%] h-[27cqh]">
         <Image
           alt=""
-          src="/atmosphere/the.png"
+          src="/hero/The.png"
           aria-hidden
           width={1453}
           height={652}

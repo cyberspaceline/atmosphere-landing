@@ -290,7 +290,7 @@ function createCloudField(canvas: HTMLCanvasElement, opts: FieldOptions) {
   }
 
   type Boid = { x: number; y: number; vx: number; vy: number; w: number };
-  let boids: Boid[] = [];
+  const boids: Boid[] = [];
   function setCount(n: number) {
     const lm = W * opts.spawnMargin,
       bm = H * opts.spawnMargin;

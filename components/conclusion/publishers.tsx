@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { LinkGlassCard } from "../card";
 import { PopoverArrow } from "../PopoverArrow";
 
 export const OffprintPost = () => {
   return (
     <div className="relative w-60 opacity-90">
       <Image
-        src="/publishers/offprint.png"
+        src="/conclusion/publishers/offprint.png"
         alt="An article written on Offprint"
         width={300}
         height={222}
@@ -23,7 +22,7 @@ export const PcktPost = () => {
   return (
     <div className="w-60 relative  opacity-90">
       <Image
-        src="/publishers/pckt.png"
+        src="/conclusion/publishers/pckt.png"
         alt="A post written on pckt"
         width={300}
         height={234}
@@ -40,7 +39,7 @@ export const LeafletPost = () => {
   return (
     <div className="w-56 relative opacity-90">
       <Image
-        src="/publishers/leaflet.png"
+        src="/conclusion/publishers/leaflet.png"
         alt="A publication written on Leaflet"
         width={240}
         height={263}
