@@ -28,7 +28,7 @@ export const Interop = () => {
         <div className="relative w-full h-full">
           <div className="absolute inset-0">
             <Image
-              src="/town/house-content.png"
+              src="/town/house-interop.png"
               alt=""
               fill
               className="object-contain object-bottom select-none pointer-events-none"
