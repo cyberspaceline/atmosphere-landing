@@ -3,8 +3,9 @@
 import { TownWrapper } from "@/components/townWrapper";
 import Image from "next/image";
 import { YourAccount } from "./yourAccount";
-import { YourContent } from "./yourContent";
-import { YourCommunity } from "./yourCommunity";
+import { YourContent } from "./yourContent/yourContent";
+import { YourCommunity } from "./yourCommunity/yourCommunity";
+import { Interop } from "./interop/interop";
 
 export function WhatIsAtmosphere() {
   return (
@@ -47,6 +48,7 @@ export function WhatIsAtmosphere() {
 
       <YourAccount />
       <YourContent />
+      <Interop />
       <YourCommunity />
     </>
   );

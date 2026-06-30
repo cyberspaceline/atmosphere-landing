@@ -4,7 +4,7 @@ import {
   SpeeachBubbleArrow1,
   SpeeachBubbleArrow2,
   SpeeachBubbleArrow3,
-} from "../PopoverArrow";
+} from "../../PopoverArrow";
 import { FLOAT_CLASS, floatStyle } from "@/lib/float";
 
 /** Per-bubble float timing so neighbouring bubbles drift out of sync. */

@@ -52,7 +52,7 @@ export default function Home() {
         <WhyAtmosphere />
       </div>
 
-      <NoEnshittification />
+      {/*<NoEnshittification />*/}
 
       <FadeIn className="w-full max-w-[1400px] h-screen mx-auto snap-end snap-always flex place-items-center justify-center">
         <div className="flex flex-col justify-center place-items-center text-center gap-2 ">

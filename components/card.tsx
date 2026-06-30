@@ -1,6 +1,6 @@
 import { useState, type ComponentType, type ReactNode } from "react";
 import Image from "next/image";
-import type { Group } from "./community/groups";
+import type { Group } from "./what-is-atmosphere/yourCommunity/groups";
 import type { LogoProps } from "./logos/types";
 import { FLOAT_CLASS, floatStyle } from "@/lib/float";
 
@@ -141,7 +141,7 @@ export const Card = ({
         alt="A post on Leaflet"
         width={400}
         height={600}
-        className="w-full h-auto"
+        className="w-full h-auto rounded-xl border border-gray-300"
       />
 
       <LinkButton

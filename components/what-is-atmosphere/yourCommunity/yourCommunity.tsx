@@ -3,7 +3,7 @@
 import { FadeIn } from "@/components/fadeIn";
 import { TownWrapper } from "@/components/townWrapper";
 import Image from "next/image";
-import { FriendGroups } from "@/components/community/friendGroups";
+import { FriendGroups } from "@/components/what-is-atmosphere/yourCommunity/friendGroups";
 
 export function YourCommunity() {
   return (
@@ -16,8 +16,10 @@ export function YourCommunity() {
         <h2>And the people and places you love</h2>
 
         <p className="mt-3 large-text">
-          Your friends and community stay with you across
-          <br /> your different apps, mediums, and contexts,
+          Your friends, follows, and even your blocks are stored in your
+          account.
+          <br /> No matter what apps you use, you&apos;ll always have your
+          community.
         </p>
       </div>
 

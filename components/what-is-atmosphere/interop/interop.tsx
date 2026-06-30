@@ -4,24 +4,24 @@ import { FadeIn } from "@/components/fadeIn";
 import { TownWrapper } from "@/components/townWrapper";
 import Image from "next/image";
 import {
-  BlueskyExample,
-  BlackskyExample,
-  AnisotaExample,
   LeafletExample,
-} from "./contentExamples";
+  AnisotaExample,
+  MarginExample,
+  SillExample,
+} from "./interopExamples";
 
-export function YourContent() {
+export const Interop = () => {
   return (
     <FadeIn
       as="section"
-      id="your-content"
+      id="interop"
       className="snap-always snap-center h-screen w-full max-w-[1400px] mx-auto relative z-20"
     >
       <div className="absolute top-16 left-16 ">
-        <h2>It carries everything you’ve made</h2>
+        <h2>Radically conntected content</h2>
         <p className="large-text mt-3">
-          Create content, posts, and feeds
-          <br /> and bring them with you everywhere
+          Mix and match apps to seamlessly <br />
+          make, repost, and build on your content
         </p>
       </div>
       <TownWrapper>
@@ -35,8 +35,8 @@ export function YourContent() {
             />
           </div>
           <div className="contents group/content-cards">
-            <BlueskyExample />
-            <BlackskyExample />
+            <SillExample />
+            <MarginExample />
             <AnisotaExample />
             <LeafletExample />
           </div>
@@ -44,4 +44,4 @@ export function YourContent() {
       </TownWrapper>
     </FadeIn>
   );
-}
+};
